@@ -1,0 +1,67 @@
+{
+    "type": "Ext.tab.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "DetailNewsPanel",
+        "designer|userAlias": "detailnewspanel"
+    },
+    "designerId": "974bf0c7-2870-4629-96f4-34a56eb74059",
+    "cn": [
+        {
+            "type": "Ext.tab.Bar",
+            "reference": {
+                "name": "tabBar",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|pack": "center",
+                "docked": "top",
+                "ui": "light"
+            },
+            "designerId": "50b79d79-8178-48f9-90af-1e60e7a5415e"
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": null,
+                "id": "newsDetails",
+                "scrollable": true
+            },
+            "designerId": "8a70b4df-e282-43cf-a024-9dda9e47f699",
+            "cn": [
+                {
+                    "type": "Ext.XTemplate",
+                    "reference": {
+                        "name": "tpl",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "implHandler": [
+                            "<div class=\"news\">\r",
+                            "\t<small>{texte}</small>\r",
+                            "</div>\r",
+                            "<div class=\"news text_supp\">\r",
+                            "\t<small>{additionalText}</small>\r",
+                            "</div>\r",
+                            "\r",
+                            "<tpl for=\"embeds\"><div class=\"news-embed\">{embedCode}</div></tpl>"
+                        ],
+                        "designer|displayName": "newTpl"
+                    },
+                    "designerId": "e56b0073-88b5-4919-b497-ce3646eff880"
+                }
+            ]
+        }
+    ]
+}

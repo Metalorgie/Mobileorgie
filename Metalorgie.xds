@@ -1,0 +1,167 @@
+{
+    "name": "Metalorgie",
+    "settings": {
+        "spacesToIndent": 4,
+        "lineEnding": "CRLF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "urlPrefix": "http://m.metalorgie.local/Metalorgie/",
+        "exportPath": "F:/Projets/mobilorgie",
+        "buildShouldOverwriteIndex": true
+    },
+    "xdsVersion": "2.2.2",
+    "xdsBuild": 991,
+    "schemaVersion": 1,
+    "upgradeVersion": 210000000503,
+    "framework": "touch22",
+    "topInstanceFileMap": {
+        "96936779-e623-47f2-9788-9996dba3215d": {
+            "paths": [
+                "metadata/resource/Library"
+            ],
+            "className": "Library"
+        },
+        "959f80d8-597c-444c-b572-c6aca5e46482": {
+            "paths": [
+                "metadata/view/NewsListContainer",
+                "app/view/override/NewsListContainer.js",
+                "app/view/NewsListContainer.js"
+            ],
+            "className": "NewsListContainer"
+        },
+        "974bf0c7-2870-4629-96f4-34a56eb74059": {
+            "paths": [
+                "metadata/view/DetailNewsPanel",
+                "app/view/override/DetailNewsPanel.js",
+                "app/view/DetailNewsPanel.js"
+            ],
+            "className": "DetailNewsPanel"
+        },
+        "dfbfdff4-9944-424b-b7e0-effaf03ad86e": {
+            "paths": [
+                "metadata/store/NewsStore",
+                "app/store/override/NewsStore.js",
+                "app/store/NewsStore.js"
+            ],
+            "className": "NewsStore"
+        },
+        "36bf37da-5e87-4c39-afef-42fc6887199b": {
+            "paths": [
+                "metadata/controller/News",
+                "app/controller/override/News.js",
+                "app/controller/News.js"
+            ],
+            "className": "News"
+        },
+        "06217d7f-7cda-4cce-9a4f-575df01f9297": {
+            "paths": [
+                "metadata/model/News",
+                "app/model/override/News.js",
+                "app/model/News.js"
+            ],
+            "className": "News"
+        },
+        "3e720d42-49ad-4c3b-991f-2eb3d7c91e88": {
+            "paths": [
+                "metadata/store/EmbedStore",
+                "app/store/override/EmbedStore.js",
+                "app/store/EmbedStore.js"
+            ],
+            "className": "EmbedStore"
+        },
+        "db054e43-8964-4e0e-abb5-17473628dec2": {
+            "paths": [
+                "metadata/model/Embed",
+                "app/model/override/Embed.js",
+                "app/model/Embed.js"
+            ],
+            "className": "Embed"
+        },
+        "1869bf1e-e9d0-4fe0-97f3-5cf185a6fe60": {
+            "paths": [
+                "metadata/resource/packager",
+                "",
+                "packager.json"
+            ],
+            "className": "packager"
+        },
+        "4aa1bf36-3ef1-47ba-85b2-c429d99841f7": {
+            "paths": [
+                "metadata/controller/Releases",
+                "app/controller/override/Releases.js",
+                "app/controller/Releases.js"
+            ],
+            "className": "Releases"
+        },
+        "518319b7-4294-4f05-a1e1-92f1c4c42ad9": {
+            "paths": [
+                "metadata/store/ReleasesStore",
+                "app/store/override/ReleasesStore.js",
+                "app/store/ReleasesStore.js"
+            ],
+            "className": "ReleasesStore"
+        },
+        "6ce57bfa-1b6e-450f-b2df-e903b7778606": {
+            "paths": [
+                "metadata/model/Release",
+                "app/model/override/Release.js",
+                "app/model/Release.js"
+            ],
+            "className": "Release"
+        },
+        "7b6a7b0e-cda7-4ef9-8316-6a64d2e0ea2e": {
+            "paths": [
+                "metadata/view/TabNav",
+                "app/view/override/TabNav.js",
+                "app/view/TabNav.js"
+            ],
+            "className": "TabNav"
+        },
+        "6e34ef79-2d38-4bd6-8e41-cc5f35ba462e": {
+            "paths": [
+                "metadata/view/MainNav",
+                "app/view/override/MainNav.js",
+                "app/view/MainNav.js"
+            ],
+            "className": "MainNav"
+        },
+        "a514221c-8942-493f-a74e-f848f7566768": {
+            "paths": [
+                "metadata/view/ReleaseListContainer",
+                "app/view/override/ReleaseListContainer.js",
+                "app/view/ReleaseListContainer.js"
+            ],
+            "className": "ReleaseListContainer"
+        }
+    },
+    "viewOrderMap": {
+        "view": [
+            "959f80d8-597c-444c-b572-c6aca5e46482",
+            "974bf0c7-2870-4629-96f4-34a56eb74059",
+            "7b6a7b0e-cda7-4ef9-8316-6a64d2e0ea2e",
+            "6e34ef79-2d38-4bd6-8e41-cc5f35ba462e",
+            "a514221c-8942-493f-a74e-f848f7566768"
+        ],
+        "store": [
+            "dfbfdff4-9944-424b-b7e0-effaf03ad86e",
+            "3e720d42-49ad-4c3b-991f-2eb3d7c91e88",
+            "518319b7-4294-4f05-a1e1-92f1c4c42ad9"
+        ],
+        "controller": [
+            "36bf37da-5e87-4c39-afef-42fc6887199b",
+            "4aa1bf36-3ef1-47ba-85b2-c429d99841f7"
+        ],
+        "model": [
+            "06217d7f-7cda-4cce-9a4f-575df01f9297",
+            "db054e43-8964-4e0e-abb5-17473628dec2",
+            "6ce57bfa-1b6e-450f-b2df-e903b7778606"
+        ],
+        "resource": [
+            "96936779-e623-47f2-9788-9996dba3215d",
+            "1869bf1e-e9d0-4fe0-97f3-5cf185a6fe60"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

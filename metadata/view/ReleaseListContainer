@@ -1,0 +1,60 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "id": "releaselistcontainer",
+        "designer|userClassName": "ReleaseListContainer",
+        "designer|userAlias": "releaselistcontainer"
+    },
+    "designerId": "a514221c-8942-493f-a74e-f848f7566768",
+    "cn": [
+        {
+            "type": "Ext.dataview.List",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": "100%",
+                "id": "releasesDataList",
+                "designer|displayName": "ReleaseDataList",
+                "loadingText": "Chargement...",
+                "store": "ReleasesStore",
+                "grouped": true,
+                "striped": true
+            },
+            "designerId": "16d75f8a-83ac-4607-a23d-1799bd6cba59",
+            "cn": [
+                {
+                    "type": "Ext.XTemplate",
+                    "reference": {
+                        "name": "itemTpl",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "implHandler": [
+                            "<div>{band_name} - {title}</div>"
+                        ],
+                        "designer|displayName": "itemTpl"
+                    },
+                    "designerId": "641768ec-11ee-4128-9f40-70a468b81c9d"
+                },
+                {
+                    "type": "Ext.plugin.ListPaging",
+                    "reference": {
+                        "name": "plugins",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "designerId": "964380df-9fa2-4d96-b832-ba56ba99f39c"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,128 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "News"
+    },
+    "designerId": "06217d7f-7cda-4cce-9a4f-575df01f9297",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id"
+            },
+            "designerId": "b18fab6d-accb-4002-815d-7e0d55c09b89"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "texte"
+            },
+            "designerId": "484876b5-3953-4dd7-bea2-730516c1e02c"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "date"
+            },
+            "designerId": "9c8269e6-1c4a-4f6b-897c-6b58a441b34d"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "additionalText"
+            },
+            "designerId": "a55c74f8-0ff2-4ea2-93ba-19cbedfb5acd"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "comments"
+            },
+            "designerId": "89a62979-b74f-491c-8cca-828952b83394"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "url"
+            },
+            "designerId": "1d90445d-0742-4fbd-ab46-31b45df0cb55"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "level"
+            },
+            "designerId": "b44e52ef-6c54-4115-8a53-41b4975fe73f"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "image",
+                "type": "string"
+            },
+            "designerId": "44349316-96cc-4d47-a487-9ceea357ce7c"
+        },
+        {
+            "type": "Ext.data.association.HasMany",
+            "reference": {
+                "name": "hasMany",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "associationKey": "embeds",
+                "designer|displayName": "hasManyEmbed",
+                "model": "Embed",
+                "autoLoad": true,
+                "foreignKey": "news_id",
+                "name": "embeds"
+            },
+            "designerId": "a1d461a8-d5c2-4232-9782-5400ab911385"
+        }
+    ]
+}

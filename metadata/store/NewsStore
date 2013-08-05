@@ -1,0 +1,93 @@
+{
+    "type": "jsonpstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "groupTpl": "<div>{.:date(\"d/m/Y\")}</div>",
+        "model": "News",
+        "storeId": "NewsStore",
+        "designer|userClassName": "NewsStore"
+    },
+    "designerId": "dfbfdff4-9944-424b-b7e0-effaf03ad86e",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "groupTpl",
+            "type": "string"
+        }
+    ],
+    "cn": [
+        {
+            "type": "Ext.data.proxy.JsonP",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "NewsProxy",
+                "url": "http://www.metalorgie.local/api/news.php"
+            },
+            "designerId": "8ed1ab98-96ea-415e-9591-c60a66fc41e3",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "",
+                        "designer|displayName": "NewsReader"
+                    },
+                    "designerId": "f3cf4abb-25c8-4d2b-990b-09a9c7d0cabb"
+                }
+            ]
+        },
+        {
+            "type": "Ext.util.Grouper",
+            "reference": {
+                "name": "grouper",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "direction": "DESC",
+                "property": null,
+                "designer|displayName": "NewsDateGrouper",
+                "sortProperty": "date"
+            },
+            "designerId": "f3c2a972-a20a-42ef-bbd9-99220eacf494",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "groupFn",
+                        "designer|params": [
+                            "item"
+                        ],
+                        "implHandler": [
+                            "var dateParts = item.get('date').split(\"-\");\r",
+                            "var jsDate = new Date(dateParts[0], dateParts[1] - 1, dateParts[2]);\r",
+                            "var store = item.stores[0];\r",
+                            "if (store.getGroupTpl()) {\r",
+                            "    return  new Ext.XTemplate(store.getGroupTpl()).apply(jsDate);\r",
+                            "}                \r",
+                            "return group;"
+                        ]
+                    },
+                    "designerId": "b56f4a3c-af39-490c-a44f-9f088179fd9f"
+                }
+            ]
+        }
+    ]
+}

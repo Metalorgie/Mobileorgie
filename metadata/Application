@@ -1,0 +1,50 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "News",
+            "Embed",
+            "Release"
+        ],
+        "stores": [
+            "NewsStore",
+            "EmbedStore",
+            "ReleasesStore"
+        ],
+        "views": [
+            "DetailNewsPanel",
+            "NewsListContainer",
+            "TabNav",
+            "MainNav",
+            "ReleaseListContainer"
+        ],
+        "controllers": [
+            "News",
+            "Releases"
+        ],
+        "name": "Metalorgie"
+    },
+    "designerId": "application",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "launch",
+                "implHandler": [
+                    "//Ext.api.url = 'http://www.metalorgie.local';"
+                ]
+            },
+            "designerId": "cb198512-0b46-4f70-92c9-eb48f5042699"
+        }
+    ]
+}

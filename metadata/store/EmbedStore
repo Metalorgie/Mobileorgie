@@ -1,0 +1,45 @@
+{
+    "type": "jsonpstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "model": "Embed",
+        "remoteFilter": true,
+        "remoteSort": true,
+        "storeId": "EmbedStore",
+        "designer|userClassName": "EmbedStore"
+    },
+    "designerId": "3e720d42-49ad-4c3b-991f-2eb3d7c91e88",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.JsonP",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "EmbedProxy",
+                "url": "http://www.metalorgie.local/api/embed.php"
+            },
+            "designerId": "bacf3591-033b-4468-8e64-fcbfcda12c5d",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "EmbedReader"
+                    },
+                    "designerId": "1d6ffc1a-f31f-45b9-8791-08a6517b4eb8"
+                }
+            ]
+        }
+    ]
+}

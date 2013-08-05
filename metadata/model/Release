@@ -1,0 +1,74 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Release"
+    },
+    "designerId": "6ce57bfa-1b6e-450f-b2df-e903b7778606",
+    "cn": [
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "date"
+            },
+            "designerId": "eeb95a0f-e0b2-498f-a996-1321ea4cc914"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "title"
+            },
+            "designerId": "4c1b0b1c-8db5-43c2-bc97-f80d56265862"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "band_id"
+            },
+            "designerId": "bfa6ebea-257d-4aff-9eaa-bc8b6d5dc9bc"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "band_name"
+            },
+            "designerId": "a2c5a41a-5920-43b9-a8b0-c12496b79822"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "waiting"
+            },
+            "designerId": "c2600c01-e89a-4f32-93e2-f8d08ed7e2a9"
+        }
+    ]
+}

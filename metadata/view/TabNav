@@ -1,0 +1,91 @@
+{
+    "type": "Ext.tab.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "centered": false,
+        "disabled": false,
+        "docked": null,
+        "id": "tabNav",
+        "designer|userClassName": "TabNav",
+        "designer|userAlias": "tabNav"
+    },
+    "designerId": "7b6a7b0e-cda7-4ef9-8316-6a64d2e0ea2e",
+    "cn": [
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": "News",
+                "layout": "fit"
+            },
+            "designerId": "7e2cb5aa-af68-4d9f-9ce0-d0994474625c",
+            "cn": [
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "tabNewsContainer",
+                        "designer|displayName": "tabNewsContainer"
+                    },
+                    "designerId": "cbb2f89e-cf03-4d84-9342-7078889f4a57",
+                    "masterInstanceId": "959f80d8-597c-444c-b572-c6aca5e46482"
+                }
+            ]
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": "Sorties",
+                "hidden": false,
+                "id": "releasesTab",
+                "itemId": "",
+                "designer|displayName": "Releases",
+                "layout": "fit"
+            },
+            "designerId": "21a3da24-6f3c-40b7-9664-1bd619ec2809",
+            "cn": [
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "designerId": "482d7129-36a0-41df-aaf4-9d6fdc56dc3c",
+                    "masterInstanceId": "a514221c-8942-493f-a74e-f848f7566768"
+                }
+            ]
+        },
+        {
+            "type": "Ext.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": "Concerts",
+                "hidden": false,
+                "layout": "fit"
+            },
+            "designerId": "9b93678b-5421-4c45-943d-8f14af610b9e"
+        }
+    ]
+}

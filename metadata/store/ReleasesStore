@@ -1,0 +1,92 @@
+{
+    "type": "jsonpstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "groupTpl": "<div>{.:date(\"d/m/Y\")}</div>",
+        "model": "Release",
+        "pageSize": 50,
+        "storeId": "ReleasesStore",
+        "designer|userClassName": "ReleasesStore"
+    },
+    "designerId": "518319b7-4294-4f05-a1e1-92f1c4c42ad9",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "groupTpl",
+            "type": "string"
+        }
+    ],
+    "cn": [
+        {
+            "type": "Ext.data.proxy.JsonP",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "ReleasesProxy",
+                "url": "http://www.metalorgie.local/api/releases.php"
+            },
+            "designerId": "bb80063c-05e8-4f59-954e-3301686eb932",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "ReleasesReader"
+                    },
+                    "designerId": "c6e1d3b6-9acf-4130-9d90-12787a34e658"
+                }
+            ]
+        },
+        {
+            "type": "Ext.util.Grouper",
+            "reference": {
+                "name": "grouper",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "property": "date",
+                "designer|displayName": "DateGrouper",
+                "sortProperty": "date"
+            },
+            "designerId": "4725537b-63a5-46c5-afd3-5074e36d8e19",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "groupFn",
+                        "designer|params": [
+                            "item"
+                        ],
+                        "implHandler": [
+                            "var dateParts = item.get('date').split(\"-\");\r",
+                            "var jsDate = new Date(dateParts[0], dateParts[1] - 1, dateParts[2]);\r",
+                            "var store = item.stores[0];\r",
+                            "if (store.getGroupTpl()) {\r",
+                            "    return  new Ext.XTemplate(store.getGroupTpl()).apply(jsDate);\r",
+                            "}                \r",
+                            "return group;"
+                        ]
+                    },
+                    "designerId": "d21ed09c-f3ea-4a42-909f-54c6ecaf95d6"
+                }
+            ]
+        }
+    ]
+}

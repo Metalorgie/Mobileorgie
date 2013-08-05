@@ -1,0 +1,31 @@
+{
+    "type": "Ext.navigation.View",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "id": "mainNav",
+        "ui": "dark",
+        "designer|userClassName": "MainNav",
+        "designer|userAlias": "mainNav",
+        "designer|initialView": true
+    },
+    "designerId": "6e34ef79-2d38-4bd6-8e41-cc5f35ba462e",
+    "cn": [
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ui": "dark"
+            },
+            "designerId": "87987194-4063-4ebd-a8ea-62b9ee4df490",
+            "masterInstanceId": "7b6a7b0e-cda7-4ef9-8316-6a64d2e0ea2e"
+        }
+    ]
+}

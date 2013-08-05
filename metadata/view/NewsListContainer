@@ -1,0 +1,66 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "NewsListContainer",
+        "designer|userAlias": "newslistcontainer",
+        "layout": "fit"
+    },
+    "designerId": "959f80d8-597c-444c-b572-c6aca5e46482",
+    "cn": [
+        {
+            "type": "Ext.dataview.List",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "id": "newsDataList",
+                "loadingText": "Chargement...",
+                "store": "NewsStore",
+                "grouped": true,
+                "pinHeaders": false,
+                "striped": true
+            },
+            "designerId": "72035b85-3459-45f2-930b-112ad63171f6",
+            "cn": [
+                {
+                    "type": "Ext.XTemplate",
+                    "reference": {
+                        "name": "itemTpl",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "implHandler": [
+                            "<tpl if=\"image.length &gt; 1\">\r",
+                            "<img class=\"photo\" src=\"{image}\" width=\"40\" height=\"40\"/>\r",
+                            "</tpl>\r",
+                            "<small>{texte}</small>"
+                        ],
+                        "designer|displayName": "itemTpl"
+                    },
+                    "designerId": "142de931-85aa-4141-8d64-4a35118d2476"
+                },
+                {
+                    "type": "Ext.plugin.ListPaging",
+                    "reference": {
+                        "name": "plugins",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "autoPaging": true,
+                        "loadMoreText": "Chargement des news"
+                    },
+                    "designerId": "f0b6e518-06cb-4f54-a6aa-e818e3beb876"
+                }
+            ]
+        }
+    ]
+}
