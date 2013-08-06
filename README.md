@@ -28,6 +28,12 @@ Comment l'utiliser
 - Vous pouvez accéder à l'appli en allant sur votre vHost
 - Pour l'éditer : utilisez Sencha Architect (qui va écrire dans les fichier situé dans /metadata), quand vous sauvegardez les fichier situé dans app sont mis à jour (les fichiers JS), donc ne modifiez pas directement ces fichiers.
 
+Publication
+-------------------------
+Le code est open source, vous pouvez donc venir aider. Mais SVP évitez de sortir une app mobile sur un store, ou de la mettre en ligne de votre propre chef.
+On préfère faire cette partie nous même, pour que ça soit plus lisible pour tout le monde. Mais si vous voulez bosser sur une adaptation, avait des idées, ... et bien n'hésitez pas à proposer, soumettre, ...!
+
+
 Planning
 ===========
 
