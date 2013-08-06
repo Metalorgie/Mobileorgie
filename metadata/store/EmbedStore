@@ -23,7 +23,7 @@
             "codeClass": null,
             "userConfig": {
                 "designer|displayName": "EmbedProxy",
-                "url": "http://www.metalorgie.local/api/embed.php"
+                "url": "http://www.metalorgie.com/api/embed.php"
             },
             "designerId": "bacf3591-033b-4468-8e64-fcbfcda12c5d",
             "cn": [

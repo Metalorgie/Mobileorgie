@@ -27,7 +27,7 @@ Ext.define('Metalorgie.store.EmbedStore', {
         storeId: 'EmbedStore',
         proxy: {
             type: 'jsonp',
-            url: 'http://www.metalorgie.local/api/embed.php',
+            url: 'http://www.metalorgie.com/api/embed.php',
             reader: {
                 type: 'json'
             }

@@ -30,7 +30,7 @@
             "codeClass": null,
             "userConfig": {
                 "designer|displayName": "ReleasesProxy",
-                "url": "http://www.metalorgie.local/api/releases.php"
+                "url": "http://www.metalorgie.com/api/releases.php"
             },
             "designerId": "bb80063c-05e8-4f59-954e-3301686eb932",
             "cn": [

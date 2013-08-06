@@ -27,7 +27,7 @@ Ext.define('Metalorgie.store.ReleasesStore', {
         storeId: 'ReleasesStore',
         proxy: {
             type: 'jsonp',
-            url: 'http://www.metalorgie.local/api/releases.php',
+            url: 'http://www.metalorgie.com/api/releases.php',
             reader: {
                 type: 'json'
             }

@@ -29,7 +29,7 @@
             "codeClass": null,
             "userConfig": {
                 "designer|displayName": "NewsProxy",
-                "url": "http://www.metalorgie.local/api/news.php"
+                "url": "http://www.metalorgie.com/api/news.php"
             },
             "designerId": "8ed1ab98-96ea-415e-9591-c60a66fc41e3",
             "cn": [

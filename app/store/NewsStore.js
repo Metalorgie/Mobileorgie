@@ -26,7 +26,7 @@ Ext.define('Metalorgie.store.NewsStore', {
         storeId: 'NewsStore',
         proxy: {
             type: 'jsonp',
-            url: 'http://www.metalorgie.local/api/news.php',
+            url: 'http://www.metalorgie.com/api/news.php',
             reader: {
                 type: 'json',
                 rootProperty: ''

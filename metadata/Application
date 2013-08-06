@@ -45,6 +45,15 @@
                 ]
             },
             "designerId": "cb198512-0b46-4f70-92c9-eb48f5042699"
+        },
+        {
+            "type": "Ext.Loader",
+            "reference": {
+                "name": "loader",
+                "type": "object"
+            },
+            "codeClass": null,
+            "designerId": "8326f85b-1e5b-421c-8040-6134c619f352"
         }
     ]
 }
