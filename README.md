@@ -14,7 +14,7 @@ Elle utilise :
 
 Pour informations :
 - La partie est dév est réalisée par [Bacteries](https://github.com/Bacteries) - [Twitter](http://twitter.com/Bacteries)
-- Le design est réalisé par [Vinz](https://github.com/picks44) - [Twitter](https://twitter.com/VinzGhislain)
+- Le design est réalisé par [picks](https://github.com/picks44) - [Twitter](https://twitter.com/VinzGhislain)
 
 C'est une première pour chacun, donc y'a sûrement des choses pas terribles dans le code (sûr même!), mais si ça vous dérange une pull request est la bienvenue!
 
