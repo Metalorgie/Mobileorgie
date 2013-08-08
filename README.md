@@ -8,13 +8,13 @@ L'application mobile de [Metalorgie.com](http://www.metalorgie.com). Open Source
 Toutes les aides sont les bienvenues!
 
 Elle utilise :
-- [Sensha Touch 2](http://www.sencha.com/products/touch)
-- [Sensha Architect](http://www.sencha.com/products/architect)
-(c'est donc du JS / CSS / HTML) Et pourquoi avoir utilisez Sensha Architect : pour aller plus vite! (et vu que ça fait un code propre c'est pas mal du tout). Ca permet de se familiariser avec le framework Sensha Touch assez aisément et force à faire du code plus ou moins propre.
+- [Sencha Touch 2](http://www.sencha.com/products/touch)
+- [Sencha Architect](http://www.sencha.com/products/architect)
+(c'est donc du JS / CSS / HTML) Et pourquoi avoir utilisez Sencha Architect : pour aller plus vite! (et vu que ça fait un code propre c'est pas mal du tout). Ca permet de se familiariser avec le framework Sencha Touch assez aisément et force à faire du code plus ou moins propre.
 
 Pour informations :
-- La partie est dév est réalisée par [Bacteries](https://github.com/Bacteries) [Twitter](http://twitter.com/Bacteries)
-- Le design est réalisé par [Vinz](https://github.com/picks44) [Twitter](https://twitter.com/VinzGhislain)
+- La partie est dév est réalisée par [Bacteries](https://github.com/Bacteries) - [Twitter](http://twitter.com/Bacteries)
+- Le design est réalisé par [picks](https://github.com/picks44) - [Twitter](https://twitter.com/VinzGhislain)
 
 C'est une première pour chacun, donc y'a sûrement des choses pas terribles dans le code (sûr même!), mais si ça vous dérange une pull request est la bienvenue!
 
@@ -22,11 +22,17 @@ L'appli se base sur une mini API metalorgie pour accéder aux données. Si vous 
 
 Comment l'utiliser
 -------------------------
-- Installez [Sensha Architect](http://www.sencha.com/products/architect)
+- Installez [Sencha Architect](http://www.sencha.com/products/architect)
 - Récupérer le projet via Git
 - Faites pointer un vHost Apache sur le répertoire (ou mettez là dans votre répertoire www par défaut)
 - Vous pouvez accéder à l'appli en allant sur votre vHost
-- Pour l'éditer : utilisez Sensha Architect (qui va écrire dans les fichier situé dans /metadata), quand vous sauvegardez les fichier situé dans app sont mis à jour (les fichiers JS), donc ne modifiez pas directement ces fichiers.
+- Pour l'éditer : utilisez Sencha Architect (qui va écrire dans les fichier situé dans /metadata), quand vous sauvegardez les fichier situé dans app sont mis à jour (les fichiers JS), donc ne modifiez pas directement ces fichiers.
+
+Publication
+-------------------------
+Le code est open source, vous pouvez donc venir aider. Mais SVP évitez de sortir une app mobile sur un store, ou de la mettre en ligne de votre propre chef.
+On préfère faire cette partie nous même, pour que ça soit plus lisible pour tout le monde. Mais si vous voulez bosser sur une adaptation, avait des idées, ... et bien n'hésitez pas à proposer, soumettre, ...!
+
 
 Planning
 ===========
