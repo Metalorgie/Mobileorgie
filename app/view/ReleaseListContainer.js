@@ -33,6 +33,8 @@ Ext.define('Metalorgie.view.ReleaseListContainer', {
                 striped: true,
                 plugins: [
                     {
+                        autoPaging: true,
+                        loadMoreText: 'Suite',
                         type: 'listpaging'
                     }
                 ]

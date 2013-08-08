@@ -42,7 +42,6 @@ Ext.define('Metalorgie.store.ReleasesStore', {
                 }                
                 return group;
             },
-            property: 'date',
             sortProperty: 'date'
         }
     }

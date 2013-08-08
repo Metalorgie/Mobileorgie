@@ -56,7 +56,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "property": "date",
+                "property": null,
                 "designer|displayName": "DateGrouper",
                 "sortProperty": "date"
             },

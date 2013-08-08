@@ -52,7 +52,11 @@
                         "type": "array"
                     },
                     "codeClass": null,
-                    "designerId": "964380df-9fa2-4d96-b832-ba56ba99f39c"
+                    "userConfig": {
+                        "autoPaging": true,
+                        "loadMoreText": "Suite"
+                    },
+                    "designerId": "f8d87d3e-da1b-47ab-b123-e43b4b02191e"
                 }
             ]
         }
