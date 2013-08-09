@@ -132,6 +132,30 @@
                 "app/view/ReleaseListContainer.js"
             ],
             "className": "ReleaseListContainer"
+        },
+        "441a1a83-6ceb-4d8a-a86b-0064abf94cd0": {
+            "paths": [
+                "metadata/controller/Lives",
+                "app/controller/override/Lives.js",
+                "app/controller/Lives.js"
+            ],
+            "className": "Lives"
+        },
+        "4ab1a91c-9206-4182-8f8d-d5086cc958f1": {
+            "paths": [
+                "metadata/store/LivesStore",
+                "app/store/override/LivesStore.js",
+                "app/store/LivesStore.js"
+            ],
+            "className": "LivesStore"
+        },
+        "34b49b5b-eca6-41ef-91ca-4454c50cd640": {
+            "paths": [
+                "metadata/model/Live",
+                "app/model/override/Live.js",
+                "app/model/Live.js"
+            ],
+            "className": "Live"
         }
     },
     "viewOrderMap": {
@@ -145,16 +169,19 @@
         "store": [
             "dfbfdff4-9944-424b-b7e0-effaf03ad86e",
             "3e720d42-49ad-4c3b-991f-2eb3d7c91e88",
-            "518319b7-4294-4f05-a1e1-92f1c4c42ad9"
+            "518319b7-4294-4f05-a1e1-92f1c4c42ad9",
+            "4ab1a91c-9206-4182-8f8d-d5086cc958f1"
         ],
         "controller": [
             "36bf37da-5e87-4c39-afef-42fc6887199b",
-            "4aa1bf36-3ef1-47ba-85b2-c429d99841f7"
+            "4aa1bf36-3ef1-47ba-85b2-c429d99841f7",
+            "441a1a83-6ceb-4d8a-a86b-0064abf94cd0"
         ],
         "model": [
             "06217d7f-7cda-4cce-9a4f-575df01f9297",
             "db054e43-8964-4e0e-abb5-17473628dec2",
-            "6ce57bfa-1b6e-450f-b2df-e903b7778606"
+            "6ce57bfa-1b6e-450f-b2df-e903b7778606",
+            "34b49b5b-eca6-41ef-91ca-4454c50cd640"
         ],
         "resource": [
             "96936779-e623-47f2-9788-9996dba3215d",

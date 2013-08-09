@@ -1,0 +1,42 @@
+{
+    "type": "jsonpstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "storeId": "MyJsonPStore",
+        "designer|userClassName": "LivesStore"
+    },
+    "designerId": "4ab1a91c-9206-4182-8f8d-d5086cc958f1",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.JsonP",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "LivesProxy",
+                "url": "http://www.metalorgie;com/api/lives.php"
+            },
+            "designerId": "1fb2f972-3e78-48d2-8b19-c448b114a056",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "LiveReader"
+                    },
+                    "designerId": "a6d1d4a8-8f4b-4b14-8714-8954c8b2f50c"
+                }
+            ]
+        }
+    ]
+}

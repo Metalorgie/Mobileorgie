@@ -22,12 +22,14 @@ Ext.application({
     models: [
         'News',
         'Embed',
-        'Release'
+        'Release',
+        'Live'
     ],
     stores: [
         'NewsStore',
         'EmbedStore',
-        'ReleasesStore'
+        'ReleasesStore',
+        'LivesStore'
     ],
     views: [
         'DetailNewsPanel',
@@ -38,7 +40,8 @@ Ext.application({
     ],
     controllers: [
         'News',
-        'Releases'
+        'Releases',
+        'Lives'
     ],
     name: 'Metalorgie',
 

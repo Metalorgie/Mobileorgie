@@ -1,0 +1,50 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Lives"
+    },
+    "designerId": "441a1a83-6ceb-4d8a-a86b-0064abf94cd0",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "activate",
+                "implHandler": [
+                    ""
+                ],
+                "name": "activate",
+                "designer|targetType": "Ext.Container",
+                "designer|controlQuery": "#livesTab"
+            },
+            "designerId": "05f7d989-8c97-4aef-849d-65df35a6b388"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "getLives",
+                "designer|params": [
+                    "callback"
+                ],
+                "implHandler": [
+                    ""
+                ]
+            },
+            "designerId": "d96679f9-cb9f-4996-9b84-1e103d682e61"
+        }
+    ]
+}
