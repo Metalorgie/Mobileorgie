@@ -93,6 +93,19 @@
                 "name": "picture"
             },
             "designerId": "2aa4987c-f453-49da-873e-79ed423901f5"
+        },
+        {
+            "type": "Ext.data.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "title",
+                "designer|displayName": null
+            },
+            "designerId": "1e7ddab7-2c5a-457d-9afa-d2797d05b24c"
         }
     ]
 }

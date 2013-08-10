@@ -21,10 +21,14 @@ Ext.define('Metalorgie.view.LivesContainer', {
         items: [
             {
                 xtype: 'list',
+                height: '100%',
+                id: 'livesDataList',
                 itemTpl: [
-                    '<div>{city} ({place})</div>'
+                    '<div>{title} - {city} ({place})</div>'
                 ],
-                store: 'LivesStore'
+                store: 'LivesStore',
+                grouped: true,
+                striped: true
             }
         ]
     }

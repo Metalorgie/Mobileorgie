@@ -17,6 +17,11 @@ Ext.define('Metalorgie.controller.Lives', {
     extend: 'Ext.app.Controller',
 
     config: {
+        refs: {
+            livesTab: '#livesTab',
+            livesDataList: '#livesDataList'
+        },
+
         control: {
             "#livesTab": {
                 activate: 'onViewActivated'
@@ -28,17 +33,19 @@ Ext.define('Metalorgie.controller.Lives', {
         var me = this;
         // use Metalorgie to get release
         me.getLives(function (store) {
-            if (!store.loaded){
-                Ext.Viewport.setMasked({ message: 'Chargement...' });
-                // then bind data to list and show it
-                me.getReleasesDataList().setStore(store);
-                Ext.Viewport.setMasked(false);
-            }
+            //if (!store.loaded){
+            Ext.Viewport.setMasked({ message: 'Chargement...' });
+            // then bind data to list and show it
+            console.log(me.getLivesDataList());
+            me.getLivesDataList().setStore(store);
+            Ext.Viewport.setMasked(false);
+            //}
         });
     },
 
     getLives: function(callback) {
         var store = Ext.data.StoreManager.lookup('LivesStore');
+        console.log(store);
         store.load(function() {
             callback(store);
         });

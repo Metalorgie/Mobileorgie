@@ -19,8 +19,12 @@
             },
             "codeClass": null,
             "userConfig": {
+                "height": "100%",
+                "id": "livesDataList",
                 "designer|displayName": "LivesDataList",
-                "store": "LivesStore"
+                "store": "LivesStore",
+                "grouped": true,
+                "striped": true
             },
             "designerId": "5bd5f0de-7e9a-4198-803e-92ff35d459dc",
             "cn": [
@@ -33,7 +37,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "implHandler": [
-                            "<div>{city} ({place})</div>"
+                            "<div>{title} - {city} ({place})</div>"
                         ],
                         "designer|displayName": "itemTpl"
                     },

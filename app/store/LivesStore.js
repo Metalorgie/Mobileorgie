@@ -21,13 +21,25 @@ Ext.define('Metalorgie.store.LivesStore', {
     ],
 
     config: {
+        groupTpl: '<div>{.:date("d/m/Y")}</div>',
         model: 'Metalorgie.model.Live',
         storeId: 'LivesStore',
         proxy: {
             type: 'jsonp',
-            url: 'http://www.metalorgie;com/api/lives.php',
+            url: 'http://www.metalorgie.com/api/lives.php',
             reader: {
                 type: 'json'
+            }
+        },
+        grouper: {
+            groupFn: function(item) {
+                var dateParts = item.get('startDate').split("-");
+                var jsDate = new Date(dateParts[0], dateParts[1] - 1, dateParts[2]);
+                var store = item.stores[0];
+                if (store.getGroupTpl()) {
+                    return  new Ext.XTemplate(store.getGroupTpl()).apply(jsDate);
+                }                
+                return group;
             }
         }
     }

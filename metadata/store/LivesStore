@@ -6,11 +6,19 @@
     },
     "codeClass": null,
     "userConfig": {
+        "groupTpl": "<div>{.:date(\"d/m/Y\")}</div>",
         "model": "Live",
         "storeId": "LivesStore",
         "designer|userClassName": "LivesStore"
     },
     "designerId": "4ab1a91c-9206-4182-8f8d-d5086cc958f1",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "groupTpl",
+            "type": "string"
+        }
+    ],
     "cn": [
         {
             "type": "Ext.data.proxy.JsonP",
@@ -21,7 +29,7 @@
             "codeClass": null,
             "userConfig": {
                 "designer|displayName": "LivesProxy",
-                "url": "http://www.metalorgie;com/api/lives.php"
+                "url": "http://www.metalorgie.com/api/lives.php"
             },
             "designerId": "1fb2f972-3e78-48d2-8b19-c448b114a056",
             "cn": [
@@ -36,6 +44,44 @@
                         "designer|displayName": "LiveReader"
                     },
                     "designerId": "a6d1d4a8-8f4b-4b14-8714-8954c8b2f50c"
+                }
+            ]
+        },
+        {
+            "type": "Ext.util.Grouper",
+            "reference": {
+                "name": "grouper",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "DateGrouper"
+            },
+            "designerId": "54af8a1d-a07a-4573-bdb1-b9b7660236f0",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "groupFn",
+                        "designer|params": [
+                            "item"
+                        ],
+                        "implHandler": [
+                            "var dateParts = item.get('startDate').split(\"-\");\r",
+                            "var jsDate = new Date(dateParts[0], dateParts[1] - 1, dateParts[2]);\r",
+                            "var store = item.stores[0];\r",
+                            "if (store.getGroupTpl()) {\r",
+                            "    return  new Ext.XTemplate(store.getGroupTpl()).apply(jsDate);\r",
+                            "}                \r",
+                            "return group;"
+                        ]
+                    },
+                    "designerId": "75cea093-6af2-4632-ac40-97eed8866da2"
                 }
             ]
         }

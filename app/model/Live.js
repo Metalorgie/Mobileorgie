@@ -38,6 +38,9 @@ Ext.define('Metalorgie.model.Live', {
             },
             {
                 name: 'picture'
+            },
+            {
+                name: 'title'
             }
         ]
     }

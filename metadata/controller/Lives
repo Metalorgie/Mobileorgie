@@ -23,12 +23,13 @@
                     "var me = this;\r",
                     "// use Metalorgie to get release\r",
                     "me.getLives(function (store) {\r",
-                    "    if (!store.loaded){\r",
+                    "    //if (!store.loaded){\r",
                     "        Ext.Viewport.setMasked({ message: 'Chargement...' });\r",
                     "        // then bind data to list and show it\r",
-                    "        me.getReleasesDataList().setStore(store);\r",
+                    "        console.log(me.getLivesDataList());\r",
+                    "        me.getLivesDataList().setStore(store);\r",
                     "        Ext.Viewport.setMasked(false);\r",
-                    "    }\r",
+                    "    //}\r",
                     "});"
                 ],
                 "name": "activate",
@@ -51,7 +52,7 @@
                 ],
                 "implHandler": [
                     "var store = Ext.data.StoreManager.lookup('LivesStore');\r",
-                    "//store.getProxy().setUrl(url);\r",
+                    "console.log(store);\r",
                     "store.load(function() {\r",
                     "    callback(store);\r",
                     "});"
@@ -82,6 +83,32 @@
                 ]
             },
             "designerId": "70eb552d-ec62-4d30-8f04-fcd22d7af532"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "livesTab",
+                "selector": "#livesTab"
+            },
+            "designerId": "869268c8-e893-44a2-8d96-ad4b2b9efc49"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "livesDataList",
+                "selector": "#livesDataList"
+            },
+            "designerId": "7e607b47-b5a7-4f87-9e5e-3da55feceed4"
         }
     ]
 }
