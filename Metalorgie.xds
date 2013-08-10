@@ -156,6 +156,14 @@
                 "app/model/Live.js"
             ],
             "className": "Live"
+        },
+        "943fd644-3cce-4735-9ed7-df08a003c1f8": {
+            "paths": [
+                "metadata/view/LivesContainer",
+                "app/view/override/LivesContainer.js",
+                "app/view/LivesContainer.js"
+            ],
+            "className": "LivesContainer"
         }
     },
     "viewOrderMap": {
@@ -164,7 +172,8 @@
             "974bf0c7-2870-4629-96f4-34a56eb74059",
             "7b6a7b0e-cda7-4ef9-8316-6a64d2e0ea2e",
             "6e34ef79-2d38-4bd6-8e41-cc5f35ba462e",
-            "a514221c-8942-493f-a74e-f848f7566768"
+            "a514221c-8942-493f-a74e-f848f7566768",
+            "943fd644-3cce-4735-9ed7-df08a003c1f8"
         ],
         "store": [
             "dfbfdff4-9944-424b-b7e0-effaf03ad86e",

@@ -1,0 +1,45 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "LivesContainer",
+        "designer|userAlias": "livescontainer"
+    },
+    "designerId": "943fd644-3cce-4735-9ed7-df08a003c1f8",
+    "cn": [
+        {
+            "type": "Ext.dataview.List",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "LivesDataList",
+                "store": "LivesStore"
+            },
+            "designerId": "5bd5f0de-7e9a-4198-803e-92ff35d459dc",
+            "cn": [
+                {
+                    "type": "Ext.XTemplate",
+                    "reference": {
+                        "name": "itemTpl",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "implHandler": [
+                            "<div>{city} ({place})</div>"
+                        ],
+                        "designer|displayName": "itemTpl"
+                    },
+                    "designerId": "00a1c067-75a6-40f9-9b82-d9772a212720"
+                }
+            ]
+        }
+    ]
+}

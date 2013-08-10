@@ -19,7 +19,8 @@ Ext.define('Metalorgie.view.TabNav', {
 
     requires: [
         'Metalorgie.view.NewsListContainer',
-        'Metalorgie.view.ReleaseListContainer'
+        'Metalorgie.view.ReleaseListContainer',
+        'Metalorgie.view.LivesContainer'
     ],
 
     config: {
@@ -59,9 +60,15 @@ Ext.define('Metalorgie.view.TabNav', {
                 xtype: 'container',
                 title: 'Concerts',
                 hidden: false,
+                id: 'livesTab',
                 layout: {
                     type: 'fit'
-                }
+                },
+                items: [
+                    {
+                        xtype: 'livescontainer'
+                    }
+                ]
             }
         ]
     }

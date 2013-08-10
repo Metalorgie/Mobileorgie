@@ -83,9 +83,22 @@
             "userConfig": {
                 "title": "Concerts",
                 "hidden": false,
+                "id": "livesTab",
                 "layout": "fit"
             },
-            "designerId": "9b93678b-5421-4c45-943d-8f14af610b9e"
+            "designerId": "9b93678b-5421-4c45-943d-8f14af610b9e",
+            "cn": [
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "designerId": "202b98e7-191e-4127-8e84-44a5ff0f40cb",
+                    "masterInstanceId": "943fd644-3cce-4735-9ed7-df08a003c1f8"
+                }
+            ]
         }
     ]
 }

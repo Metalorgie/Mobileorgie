@@ -19,17 +19,39 @@ Ext.define('Metalorgie.controller.Lives', {
     config: {
         control: {
             "#livesTab": {
-                activate: 'activate'
+                activate: 'onViewActivated'
             }
         }
     },
 
-    activate: function(newActiveItem, container, oldActiveItem, eOpts) {
-
+    onViewActivated: function(newActiveItem, container, oldActiveItem, eOpts) {
+        var me = this;
+        // use Metalorgie to get release
+        me.getLives(function (store) {
+            if (!store.loaded){
+                Ext.Viewport.setMasked({ message: 'Chargement...' });
+                // then bind data to list and show it
+                me.getReleasesDataList().setStore(store);
+                Ext.Viewport.setMasked(false);
+            }
+        });
     },
 
     getLives: function(callback) {
+        var store = Ext.data.StoreManager.lookup('LivesStore');
+        store.load(function() {
+            callback(store);
+        });
+    },
 
+    getLocation: function(callback) {
+        if (navigator && navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                callback(position);
+            }, function(error) {
+                // give a warning for error
+            });
+        }
     }
 
 });

@@ -18,9 +18,18 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fn": "activate",
+                "fn": "onViewActivated",
                 "implHandler": [
-                    ""
+                    "var me = this;\r",
+                    "// use Metalorgie to get release\r",
+                    "me.getLives(function (store) {\r",
+                    "    if (!store.loaded){\r",
+                    "        Ext.Viewport.setMasked({ message: 'Chargement...' });\r",
+                    "        // then bind data to list and show it\r",
+                    "        me.getReleasesDataList().setStore(store);\r",
+                    "        Ext.Viewport.setMasked(false);\r",
+                    "    }\r",
+                    "});"
                 ],
                 "name": "activate",
                 "designer|targetType": "Ext.Container",
@@ -41,10 +50,38 @@
                     "callback"
                 ],
                 "implHandler": [
-                    ""
+                    "var store = Ext.data.StoreManager.lookup('LivesStore');\r",
+                    "//store.getProxy().setUrl(url);\r",
+                    "store.load(function() {\r",
+                    "    callback(store);\r",
+                    "});"
                 ]
             },
             "designerId": "d96679f9-cb9f-4996-9b84-1e103d682e61"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "getLocation",
+                "designer|params": [
+                    "callback"
+                ],
+                "implHandler": [
+                    "if (navigator && navigator.geolocation) {\r",
+                    "    navigator.geolocation.getCurrentPosition(function(position) {\r",
+                    "        callback(position);\r",
+                    "    }, function(error) {\r",
+                    "        // give a warning for error\r",
+                    "    });\r",
+                    "}"
+                ]
+            },
+            "designerId": "70eb552d-ec62-4d30-8f04-fcd22d7af532"
         }
     ]
 }

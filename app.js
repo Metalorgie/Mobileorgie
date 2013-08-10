@@ -36,7 +36,8 @@ Ext.application({
         'NewsListContainer',
         'TabNav',
         'MainNav',
-        'ReleaseListContainer'
+        'ReleaseListContainer',
+        'LivesContainer'
     ],
     controllers: [
         'News',

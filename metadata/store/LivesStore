@@ -6,7 +6,8 @@
     },
     "codeClass": null,
     "userConfig": {
-        "storeId": "MyJsonPStore",
+        "model": "Live",
+        "storeId": "LivesStore",
         "designer|userClassName": "LivesStore"
     },
     "designerId": "4ab1a91c-9206-4182-8f8d-d5086cc958f1",
