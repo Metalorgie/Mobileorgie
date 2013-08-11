@@ -23,6 +23,7 @@ Ext.define('Metalorgie.store.NewsStore', {
     config: {
         groupTpl: '<div>{.:date("d/m/Y")}</div>',
         model: 'Metalorgie.model.News',
+        remoteSort: true,
         storeId: 'NewsStore',
         proxy: {
             type: 'jsonp',

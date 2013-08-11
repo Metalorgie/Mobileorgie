@@ -8,6 +8,7 @@
     "userConfig": {
         "groupTpl": "<div>{.:date(\"d/m/Y\")}</div>",
         "model": "News",
+        "remoteSort": true,
         "storeId": "NewsStore",
         "designer|userClassName": "NewsStore"
     },

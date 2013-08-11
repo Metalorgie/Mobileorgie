@@ -8,6 +8,7 @@
     "userConfig": {
         "groupTpl": "<div>{.:date(\"d/m/Y\")}</div>",
         "model": "Live",
+        "remoteSort": true,
         "storeId": "LivesStore",
         "designer|userClassName": "LivesStore"
     },
