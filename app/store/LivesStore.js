@@ -23,6 +23,7 @@ Ext.define('Metalorgie.store.LivesStore', {
     config: {
         groupTpl: '<div>{.:date("d/m/Y")}</div>',
         model: 'Metalorgie.model.Live',
+        remoteFilter: true,
         remoteSort: true,
         storeId: 'LivesStore',
         proxy: {

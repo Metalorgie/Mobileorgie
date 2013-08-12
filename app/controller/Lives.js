@@ -32,20 +32,26 @@ Ext.define('Metalorgie.controller.Lives', {
     onViewActivated: function(newActiveItem, container, oldActiveItem, eOpts) {
         var me = this;
         // use Metalorgie to get release
-        me.getLives(function (store) {
-            //if (!store.loaded){
-            Ext.Viewport.setMasked({ message: 'Chargement...' });
-            // then bind data to list and show it
-            console.log(me.getLivesDataList());
-            me.getLivesDataList().setStore(store);
-            Ext.Viewport.setMasked(false);
-            //}
+        me.getLocation(function (location) {
+            me.getLives(location, function (store) {
+                //if (!store.loaded){
+                Ext.Viewport.setMasked({ message: 'Chargement...' });
+                // then bind data to list and show it
+                me.getLivesDataList().setStore(store);
+                Ext.Viewport.setMasked(false);
+                //}
+            });
         });
     },
 
-    getLives: function(callback) {
+    getLives: function(location, callback) {
         var store = Ext.data.StoreManager.lookup('LivesStore');
-        console.log(store);
+        store.filter([
+        Ext.create('Ext.util.Filter', {property: "lat", value: location.coords.latitude})
+        ]);
+        store.filter([
+        Ext.create('Ext.util.Filter', {property: "long", value: location.coords.longitude})
+        ]);
         store.load(function() {
             callback(store);
         });

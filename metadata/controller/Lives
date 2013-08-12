@@ -22,14 +22,15 @@
                 "implHandler": [
                     "var me = this;\r",
                     "// use Metalorgie to get release\r",
-                    "me.getLives(function (store) {\r",
-                    "    //if (!store.loaded){\r",
+                    "me.getLocation(function (location) {\r",
+                    "    me.getLives(location, function (store) {\r",
+                    "        //if (!store.loaded){\r",
                     "        Ext.Viewport.setMasked({ message: 'Chargement...' });\r",
                     "        // then bind data to list and show it\r",
-                    "        console.log(me.getLivesDataList());\r",
                     "        me.getLivesDataList().setStore(store);\r",
                     "        Ext.Viewport.setMasked(false);\r",
-                    "    //}\r",
+                    "        //}\r",
+                    "    });\r",
                     "});"
                 ],
                 "name": "activate",
@@ -48,11 +49,17 @@
             "userConfig": {
                 "fn": "getLives",
                 "designer|params": [
+                    "location",
                     "callback"
                 ],
                 "implHandler": [
                     "var store = Ext.data.StoreManager.lookup('LivesStore');\r",
-                    "console.log(store);\r",
+                    "store.filter([\r",
+                    "\tExt.create('Ext.util.Filter', {property: \"lat\", value: location.coords.latitude})\r",
+                    "]);\r",
+                    "store.filter([\r",
+                    "\tExt.create('Ext.util.Filter', {property: \"long\", value: location.coords.longitude})\r",
+                    "]);\r",
                     "store.load(function() {\r",
                     "    callback(store);\r",
                     "});"
