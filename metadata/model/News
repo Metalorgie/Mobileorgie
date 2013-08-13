@@ -32,7 +32,32 @@
             "userConfig": {
                 "name": "texte"
             },
-            "designerId": "484876b5-3953-4dd7-bea2-730516c1e02c"
+            "designerId": "484876b5-3953-4dd7-bea2-730516c1e02c",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "convert",
+                        "designer|params": [
+                            "v",
+                            "rec"
+                        ],
+                        "implHandler": [
+                            "//TODO : get link to news and map them to mobile app? (use Router?)\r",
+                            "var regexp = '/http:\\/\\/www\\.metalorgie\\.(local|com)\\/news\\/(d+)_([^\\/\"]+)[^\"]*\"/';\r",
+                            "return v.replace(/http:\\/\\/www\\.metalorgie\\.com\\/news\\/([0-9]*)/,'/news/$1');\r",
+                            "console.log(v);\r",
+                            "console.log(rec);"
+                        ]
+                    },
+                    "designerId": "da40d014-c055-467c-b58e-7659b1f489ec"
+                }
+            ]
         },
         {
             "type": "Ext.data.Field",

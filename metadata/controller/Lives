@@ -55,10 +55,10 @@
                 "implHandler": [
                     "var store = Ext.data.StoreManager.lookup('LivesStore');\r",
                     "store.filter([\r",
-                    "\tExt.create('Ext.util.Filter', {property: \"lat\", value: location.coords.latitude})\r",
+                    "Ext.create('Ext.util.Filter', {property: \"lat\", value: location.coords.latitude})\r",
                     "]);\r",
                     "store.filter([\r",
-                    "\tExt.create('Ext.util.Filter', {property: \"long\", value: location.coords.longitude})\r",
+                    "Ext.create('Ext.util.Filter', {property: \"long\", value: location.coords.longitude})\r",
                     "]);\r",
                     "store.load(function() {\r",
                     "    callback(store);\r",
