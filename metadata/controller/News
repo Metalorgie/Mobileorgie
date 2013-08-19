@@ -20,7 +20,7 @@
             "userConfig": {
                 "fn": "launch",
                 "implHandler": [
-                    "var me = this;\r",
+                    "/*var me = this;\r",
                     "\r",
                     "Ext.Viewport.setMasked({ message: 'Chargement...' });\r",
                     "// use Metalorgie to get news\r",
@@ -29,7 +29,7 @@
                     "    me.getDataList().setStore(store);\r",
                     "\r",
                     "    Ext.Viewport.setMasked(false);\r",
-                    "});"
+                    "});*/"
                 ]
             },
             "designerId": "e25d1f51-edc9-4ea7-a9fd-0fe0d2cf7552"
@@ -118,9 +118,11 @@
             "userConfig": {
                 "fn": "onListItemTap",
                 "implHandler": [
+                    "\r",
                     "var me = this, details;\r",
                     "\r",
                     "if (record) {\r",
+                    "    this.showDetails(record);/*\r",
                     "    details = Ext.create('Metalorgie.view.DetailNewsPanel', {\r",
                     "        title: 'News du ' + record.date\r",
                     "    });\r",
@@ -134,7 +136,7 @@
                     "        newsView.setData(record.data);\r",
                     "    });\r",
                     "    // set the info\r",
-                    "    me.getMainNav().push(details);\r",
+                    "    me.getMainNav().push(details);*/\r",
                     "}"
                 ],
                 "name": "itemtap",
@@ -168,6 +170,95 @@
                 ]
             },
             "designerId": "28612553-5807-416b-a220-793340c76b90"
+        },
+        {
+            "type": "Ext.app.Route",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "news/:id",
+                "fn": "viewNews",
+                "designer|params": [
+                    "id"
+                ],
+                "implHandler": [
+                    "var me = this;\r",
+                    "var store = Ext.data.StoreManager.lookup('NewsStore');\r",
+                    "store.filter([\r",
+                    "Ext.create('Ext.util.Filter', {property: \"id\", value: id})\r",
+                    "]);\r",
+                    "store.load(function() {\r",
+                    "    console.log(me);\r",
+                    "    me.showDetails(store.data);   \r",
+                    "});\r",
+                    "/*if (record) {\r",
+                    "    this.showDetails(record);   \r",
+                    "}*/"
+                ]
+            },
+            "designerId": "183f7032-0f07-4ce9-9f37-d9e291839d9a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "showDetails",
+                "designer|params": [
+                    "record"
+                ],
+                "implHandler": [
+                    "var me = this, details;\r",
+                    "details = Ext.create('Metalorgie.view.DetailNewsPanel', {\r",
+                    "        title: 'News du ' + record.date\r",
+                    "    });\r",
+                    "\r",
+                    "newsView = details.child('#newsDetails');\r",
+                    "me.getEmbedForNews(record.data.id, function(store){\r",
+                    "    newsView.setData(null);\r",
+                    "    store.data.each(function(rec) {\r",
+                    "        record.data.embeds.push(rec.data);\r",
+                    "    });\r",
+                    "    newsView.setData(record.data);\r",
+                    "});\r",
+                    "// set the info\r",
+                    "me.getMainNav().push(details);"
+                ]
+            },
+            "designerId": "183dc31a-6bad-4134-9d07-5d7faec4ad62"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onViewActivated",
+                "implHandler": [
+                    "var me = this;\r",
+                    "\r",
+                    "Ext.Viewport.setMasked({ message: 'Chargement...' });\r",
+                    "// use Metalorgie to get news\r",
+                    "me.getNews(function (store) {\r",
+                    "    // then bind data to list and show it\r",
+                    "    me.getDataList().setStore(store);\r",
+                    "\r",
+                    "    Ext.Viewport.setMasked(false);\r",
+                    "});"
+                ],
+                "name": "activate",
+                "designer|targetType": "Ext.Container",
+                "designer|controlQuery": "#tabNewsContainer"
+            },
+            "designerId": "7bcf610c-9cb4-4976-8631-a72bf0640214"
         }
     ]
 }

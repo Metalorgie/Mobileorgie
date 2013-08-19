@@ -29,7 +29,7 @@ Ext.define('Metalorgie.model.News', {
                 convert: function(v, rec) {
                     //TODO : get link to news and map them to mobile app? (use Router?)
                     var regexp = '/http:\/\/www\.metalorgie\.(local|com)\/news\/(d+)_([^\/"]+)[^"]*"/';
-                    return v.replace(/http:\/\/www\.metalorgie\.com\/news\/([0-9]*)_/,'/news/$1/');
+                    return v.replace(/http:\/\/www\.metalorgie\.com\/news\/([0-9]*)/,'/news/$1');
                     console.log(v);
                     console.log(rec);
                 },

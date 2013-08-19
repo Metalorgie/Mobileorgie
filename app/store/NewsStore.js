@@ -23,11 +23,12 @@ Ext.define('Metalorgie.store.NewsStore', {
     config: {
         groupTpl: '<div>{.:date("d/m/Y")}</div>',
         model: 'Metalorgie.model.News',
+        remoteFilter: true,
         remoteSort: true,
         storeId: 'NewsStore',
         proxy: {
             type: 'jsonp',
-            url: 'http://www.metalorgie.com/api/news.php',
+            url: 'http://www.metalorgie.local/api/news.php',
             reader: {
                 type: 'json',
                 rootProperty: ''

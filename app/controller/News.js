@@ -17,6 +17,10 @@ Ext.define('Metalorgie.controller.News', {
     extend: 'Ext.app.Controller',
 
     config: {
+        routes: {
+            'news/:id': 'viewNews'
+        },
+
         refs: {
             dataList: '#newsDataList',
             listCard: '#listCard',
@@ -27,14 +31,19 @@ Ext.define('Metalorgie.controller.News', {
         control: {
             "#newsDataList": {
                 itemtap: 'onListItemTap'
+            },
+            "#tabNewsContainer": {
+                activate: 'onViewActivated'
             }
         }
     },
 
     onListItemTap: function(dataview, index, target, record, e, eOpts) {
+
         var me = this, details;
 
         if (record) {
+            this.showDetails(record);/*
             details = Ext.create('Metalorgie.view.DetailNewsPanel', {
                 title: 'News du ' + record.date
             });
@@ -48,11 +57,11 @@ Ext.define('Metalorgie.controller.News', {
                 newsView.setData(record.data);
             });
             // set the info
-            me.getMainNav().push(details);
+            me.getMainNav().push(details);*/
         }
     },
 
-    launch: function() {
+    onViewActivated: function(newActiveItem, container, oldActiveItem, eOpts) {
         var me = this;
 
         Ext.Viewport.setMasked({ message: 'Chargement...' });
@@ -63,6 +72,19 @@ Ext.define('Metalorgie.controller.News', {
 
             Ext.Viewport.setMasked(false);
         });
+    },
+
+    launch: function() {
+        /*var me = this;
+
+        Ext.Viewport.setMasked({ message: 'Chargement...' });
+        // use Metalorgie to get news
+        me.getNews(function (store) {
+            // then bind data to list and show it
+            me.getDataList().setStore(store);
+
+            Ext.Viewport.setMasked(false);
+        });*/
     },
 
     getNews: function(callback) {
@@ -82,6 +104,39 @@ Ext.define('Metalorgie.controller.News', {
         store.load(function() {
             callback(store);
         });
+    },
+
+    viewNews: function(id) {
+        var me = this;
+        var store = Ext.data.StoreManager.lookup('NewsStore');
+        store.filter([
+        Ext.create('Ext.util.Filter', {property: "id", value: id})
+        ]);
+        store.load(function() {
+            console.log(me);
+            me.showDetails(store.data);   
+        });
+        /*if (record) {
+        this.showDetails(record);   
+        }*/
+    },
+
+    showDetails: function(record) {
+        var me = this, details;
+        details = Ext.create('Metalorgie.view.DetailNewsPanel', {
+            title: 'News du ' + record.date
+        });
+
+        newsView = details.child('#newsDetails');
+        me.getEmbedForNews(record.data.id, function(store){
+            newsView.setData(null);
+            store.data.each(function(rec) {
+                record.data.embeds.push(rec.data);
+            });
+            newsView.setData(record.data);
+        });
+        // set the info
+        me.getMainNav().push(details);
     }
 
 });
