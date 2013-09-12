@@ -21,6 +21,7 @@
             "codeClass": null,
             "userConfig": {
                 "id": "newsDataList",
+                "itemCls": "news_item",
                 "loadingText": "Chargement...",
                 "store": "NewsStore",
                 "grouped": true,
@@ -38,10 +39,20 @@
                     "codeClass": null,
                     "userConfig": {
                         "implHandler": [
-                            "<tpl if=\"image.length &gt; 1\">\r",
-                            "<img class=\"photo\" src=\"{image}\" width=\"40\" height=\"40\"/>\r",
-                            "</tpl>\r",
-                            "<small>{texte}</small>"
+                            "<div class=\"news_autres\">\r",
+                            "    <div class=\"news_img\">\r",
+                            "        <tpl if=\"image.length &gt; 1\">\r",
+                            "            <img class=\"photo\" src=\"{image}\" width=\"40\" height=\"40\"/>\r",
+                            "        </tpl>\r",
+                            "    </div>\r",
+                            "    <div class=\"news_com\">\r",
+                            "        {comments}\r",
+                            "\t</div>\r",
+                            "</div>\r",
+                            "<div class=\"news_txt\">\r",
+                            "\t<small>{texte}</small>\r",
+                            "</div>\r",
+                            ""
                         ],
                         "designer|displayName": "itemTpl"
                     },

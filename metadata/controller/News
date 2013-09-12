@@ -121,7 +121,7 @@
                     "\r",
                     "var me = this, details;\r",
                     "\r",
-                    "if (record) {\r",
+                    "if (record && !e.getTarget(\"a[href]\")) {\r",
                     "    this.showDetails(record);/*\r",
                     "    details = Ext.create('Metalorgie.view.DetailNewsPanel', {\r",
                     "        title: 'News du ' + record.date\r",
