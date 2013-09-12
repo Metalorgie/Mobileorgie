@@ -1,0 +1,28 @@
+.news_autres, .news_txt{
+	display: inline-block;
+}
+
+.news_autres{
+    width: 20%;
+    min-width: 50px;
+    text-align: center;
+    vertical-align: top;
+}
+
+.news_img{
+    padding: 5px;
+    height: 50px;
+}
+
+.news_com{
+    padding: 5px;
+    background: url("http://www.metalorgie.com/_css/v4/images/comment_metal.png") no-repeat scroll center top / auto 100% transparent;
+    background-size: auto 100%;
+}
+
+.news_txt{
+	width: 80%;
+    text-align: justify;
+    padding: 5px;
+    border-left: 1px solid lightGrey;
+}
