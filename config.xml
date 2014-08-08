@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.MetalorgieMobile" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>MetalorgieMobile</name>
+    <description>
+        Mobile app for metalorgie.com
+    </description>
+    <author email="bacteries@metalorgie.com" href="http://www.metalorgie.com">
+        Bacteries
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+</widget>
