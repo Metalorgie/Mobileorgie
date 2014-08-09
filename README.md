@@ -2,7 +2,7 @@ Mobileorgie
 ===========
 
 It's the mobile app for [Metalorgie.com](http://www.metalorgie.com)
-We use Cordova, Angular, Ionic + Grunt / Bower / Yeoman.
+We use [Cordova](http://cordova.apache.org/), [AngularJS](https://angularjs.org/), [Ionic](http://ionicframework.com/) + [Grunt](http://gruntjs.com/) / [Bower](http://bower.io/) / [Yeoman](http://yeoman.io/).
 
 Install
 =======
@@ -11,10 +11,11 @@ You must have Grunt installed
 
 ```
 git clone https://github.com/Metalorgie/Mobileorgie.git
+cd Mobileorgie
 grunt serve
 ```
 
-to compil all code and launch a local webserver (on port 8000). Your browser might open with the app.
+Grunt serve command compil all code and launch a local webserver (on port 8000). Your browser might open with the app.
 
 Participate
 ========
