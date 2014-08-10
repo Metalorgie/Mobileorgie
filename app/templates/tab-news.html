@@ -1,17 +1,18 @@
 <ion-view title="News">
   <ion-content class="has-header">
-    <ion-list can-swipe="true">
-      <ion-item class="item-thumbnail-right" ng-repeat="new in news" type="item-text-wrap" href="#/tab/news/{{new.id}}">
-          <p ng-bind-html="new.texte"></p>
-          <ion-option-button class="button-positive"
-                             ng-click="share(item)">
-              Partager
-          </ion-option-button>
-          <ion-option-button class="button-info"
-                             ng-click="edit(item)">
-              Détails
-          </ion-option-button>
-      </ion-item>
-    </ion-list>
+        <ion-list can-swipe="true">
+          <ion-item class="item-thumbnail-right" ng-repeat="new in news" type="item-text-wrap" href="#/tab/news/{{new.id}}">
+              <p ng-bind-html="new.texte"></p>
+              <ion-option-button class="button-positive"
+                                 ng-click="share(item)">
+                  Partager
+              </ion-option-button>
+              <ion-option-button class="button-info"
+                                 ng-click="edit(item)">
+                  Détails
+              </ion-option-button>
+          </ion-item>
+        </ion-list>
+      <ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="loadMore()" distance="10%"></ion-infinite-scroll>
   </ion-content>
 </ion-view>

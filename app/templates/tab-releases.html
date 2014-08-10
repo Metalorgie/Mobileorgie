@@ -1,7 +1,7 @@
-<ion-view title="Concerts">
+<ion-view title="Sorties">
   <ion-content class="has-header">
     <ion-list>
-      <ion-item class="item-icon-right" ng-repeat="live in lives" type="item-text-wrap">
+      <ion-item class="item-icon-right" ng-repeat="release in releases" type="item-text-wrap">
         <h2>{{ live.city }} - {{ live.startDate | date :'dd/MM/yyyy' }}</h2>
           {{ live.title }} @ {{ live.place }}
         <i class="icon ion-chevron-right icon-accessory"></i>

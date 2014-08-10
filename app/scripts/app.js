@@ -36,7 +36,6 @@ angular.module('MetalorgieMobile', ['ionic', 'config', 'MetalorgieMobile.control
       abstract: true,
       templateUrl: 'templates/tabs.html'
     })
-
   .state('tab.news', {
       url: '/news',
       views: {
@@ -45,7 +44,26 @@ angular.module('MetalorgieMobile', ['ionic', 'config', 'MetalorgieMobile.control
               controller: 'NewsCtrl'
           }
       }
-  });
+  })
+  .state('tab.news-detail', {
+      url: '/news/:newsId',
+      views: {
+          'tab-news': {
+              templateUrl: 'templates/news-detail.html',
+              controller: 'NewsDetailCtrl'
+          }
+      }
+  })
+  .state('tab.lives', {
+      url: '/lives',
+      views: {
+          'tab-lives': {
+              templateUrl: 'templates/tab-lives.html',
+              controller: 'LivesCtrl'
+          }
+      }
+  })
+  ;
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/news');
