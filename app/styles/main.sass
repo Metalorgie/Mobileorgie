@@ -1,7 +1,61 @@
 /* Your app's SASS, go crazy, make it your own */
 
-.ionic-logo
-  display: block
-  margin: 15px auto
-  width: 96px
-  height: 96px
+/* COLORS */
+$red: #BC0000
+$black: #000000
+$white: #FFFFFF
+$lightgrey: #D3D3D3
+$darkgrey: #2E2525
+
+/* FONTS */
+$font: Helvetica, sans-serif
+
+/* BORDER-RADIUS */
+=border-radius($radius)
+  -webkit-border-radius: $radius
+  -moz-border-radius:    $radius
+  -ms-border-radius:     $radius
+  border-radius:         $radius
+
+/* GENERAL */
+body
+  font-family: $font
+  color: $black
+a
+  @extend body
+  color: $red
+
+/* TOP BAR */
+.bar.bar-stable
+  background-color: $red
+  border-color: $black
+  border-bottom: $black 1px solid
+  .title
+    background: $red url('../images/logo.png') no-repeat fixed top
+  .button
+    color: $white
+
+/* LIST */
+.list
+  .item
+    border-style: dashed
+    .item-content
+      background-color: none
+      .icon
+        color: $red
+    h2
+      color: $red
+      font-weight: bold
+    .icon-accessory
+      color: $red
+    .item-options
+      .button-positive
+        background-color: $red
+        text-align: center
+      .button-info
+        background-color: $lightgrey
+
+/* CARD */
+.card
+  .item 
+    border-style: solid

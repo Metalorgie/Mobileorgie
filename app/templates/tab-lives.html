@@ -1,4 +1,7 @@
-<ion-view title="Concerts">
+<ion-view>
+  <ion-nav-buttons side="right">
+      <button class="button button-icon icon ion-ios7-navigate-outline" ng-click="geolocate()"></button>
+  </ion-nav-buttons>
   <ion-content class="has-header">
     <ion-list>
       <ion-item class="item-icon-right" ng-repeat="live in lives" type="item-text-wrap">
