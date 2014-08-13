@@ -4,8 +4,9 @@
 $red: #BC0000
 $black: #000000
 $white: #FFFFFF
-$lightgrey: #D3D3D3
-$darkgrey: #2E2525
+$lightgrey: #D1D1D1
+$grey: #666666
+$darkgrey: #262626
 
 /* FONTS */
 $font: Helvetica, sans-serif
@@ -17,6 +18,12 @@ $font: Helvetica, sans-serif
   -ms-border-radius:     $radius
   border-radius:         $radius
 
+/* BORDER */
+=border($style)
+  border: 1px $lightgrey $style
+$greyborder: $grey 1px solid !important
+$lightgreyborder: $lightgrey 1px solid !important
+
 /* GENERAL */
 body
   font-family: $font
@@ -24,27 +31,53 @@ body
 a
   @extend body
   color: $red
+p
+  margin: 0
+.groupe
+  font-weight: bold
+  text-decoration: none
 
-/* TOP BAR */
+/* NAV BAR */
 .bar.bar-stable
   background-color: $red
-  border-color: $black
-  border-bottom: $black 1px solid
   .title
     background: $red url('../images/logo.png') no-repeat fixed top
   .button
     color: $white
 
+/* TAB BAR */
+.tabs:first-child
+  background-color: $white
+  border-top: $greyborder
+  line-height: 47px
+  .tab-item
+    color: $grey
+    opacity: 1
+    span
+      font-weight: bold
+      text-transform: uppercase
+  .tab-item.tab-item-active
+    color: $red
+
 /* LIST */
 .list
   .item
-    border-style: dashed
+    +border(dashed)
     .item-content
-      background-color: none
+      background-color: transparent
       .icon
         color: $red
+      .padding
+        +border(solid)
+        padding: 5px
+        margin-top: 10px
     h2
       color: $red
+      font-weight: bold
+      .livedate
+        color: $grey
+        font-weight: normal
+    .livetitle
       font-weight: bold
     .icon-accessory
       color: $red
@@ -58,4 +91,12 @@ a
 /* CARD */
 .card
   .item 
-    border-style: solid
+    +border(solid)
+    margin: 0 !important
+  .item-body
+    margin-top: -1px !important
+  .item-divider
+    color: $grey
+  .tabs-secondary
+    border-bottom: $lightgreyborder
+    margin-bottom: -1px !important

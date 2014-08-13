@@ -11,12 +11,12 @@
         {{news.date | date :'dd/MM/yyyy'}}
       </div>
       <div class="item item-body">
-        <img class="full-image" src="http://lorempixel.com/output/sports-q-c-500-500-7.jpg">
+        <img class="full-image" src="{{ news.image }}">
         <p ng-bind-html="news.texte"></p>
         <p ng-if="news.additionalText">{{ news.additionalText }}</p>
         <p>
-          <a href="#" class="subdued">1 Like</a>
-          <a href="#" class="subdued">5 Comments</a>
+          <a href="#" class="subdued">n Like</a>
+          <a href="#" class="subdued">{{ news.comments }} Comments</a>
         </p>
       </div>
       <div class="item tabs tabs-secondary tabs-icon-left">
@@ -30,5 +30,6 @@
           <i class="icon ion-share"></i> Share
         </a>
       </div>
+    </div>
   </ion-content>
 </ion-view>

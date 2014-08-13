@@ -5,8 +5,8 @@
   <ion-content class="has-header">
     <ion-list>
       <ion-item class="item-icon-right" ng-repeat="live in lives" type="item-text-wrap">
-        <h2>{{ live.city }} - {{ live.startDate | date :'dd/MM/yyyy' }}</h2>
-          {{ live.title }} @ {{ live.place }}
+        <h2>{{ live.city }} <span class="livedate">- {{ live.startDate | date :'dd/MM/yyyy' }}</span></h2>
+        <span class="livetitle">{{ live.title }} @ {{ live.place }}<span>
         <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
     </ion-list>
