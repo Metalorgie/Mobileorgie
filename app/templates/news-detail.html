@@ -11,9 +11,13 @@
         {{news.date | date :'dd/MM/yyyy'}}
       </div>
       <div class="item item-body">
-        <img class="full-image" src="http://lorempixel.com/output/sports-q-c-500-500-7.jpg">
+        <img class="full-image" src="{{ news.image }}">
         <p ng-bind-html="news.texte"></p>
         <p ng-if="news.additionalText">{{ news.additionalText }}</p>
+        <div ng-repeat="video in news.videos">
+           <p ng-bind-html="video.embed_code"></p>
+            {{ video.embed_code }}
+        </div>
         <p>
           <a href="#" class="subdued">1 Like</a>
           <a href="#" class="subdued">5 Comments</a>
@@ -23,9 +27,11 @@
         <a class="tab-item" href="#">
           <i class="icon ion-thumbsup"></i> Like
         </a>
+       <!-- TODO : When user account is available on mobile
         <a class="tab-item" href="#">
           <i class="icon ion-chatbox"></i> Comment
         </a>
+        -->
         <a class="tab-item" href="#">
           <i class="icon ion-share"></i> Share
         </a>

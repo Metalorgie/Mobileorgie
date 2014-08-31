@@ -2,7 +2,7 @@
   <ion-content class="has-header">
         <ion-list can-swipe="true">
           <ion-item class="item-text-wrap item-icon-left item-thumbnail-right" ng-repeat="new in news" type="item-text-wrap" href="#/tab/news/{{new.id}}">
-              <img ng-src="http://lorempixel.com/output/sports-q-c-500-500-7.jpg">
+              <img ng-src="{{ new.image }}">
               <i class="icon ion-ios7-circle-filled"></i>
               <p ng-bind-html="new.texte"></p>
               <ion-option-button class="button-positive" ng-click="share(item)">
