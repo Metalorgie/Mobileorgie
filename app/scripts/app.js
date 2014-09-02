@@ -6,7 +6,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('MetalorgieMobile', ['ionic', 'config', 'MetalorgieMobile.controllers', 'MetalorgieMobile.services'])
+angular.module('MetalorgieMobile', ['ionic', 'config', 'MetalorgieMobile.controllers', 'MetalorgieMobile.services', 'MetalorgieMobile.filters'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -21,7 +21,6 @@ angular.module('MetalorgieMobile', ['ionic', 'config', 'MetalorgieMobile.control
     }
   });
 })
-
 .config(function($stateProvider, $urlRouterProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
@@ -68,5 +67,11 @@ angular.module('MetalorgieMobile', ['ionic', 'config', 'MetalorgieMobile.control
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/news');
 
-});
+})
+
+    .filter('trustAsHtml', function($sce){
+        return function(input) {
+            return $sce.trustAsHtml(input);
+        }
+    });
 

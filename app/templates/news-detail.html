@@ -11,12 +11,11 @@
         {{news.date | date :'dd/MM/yyyy'}}
       </div>
       <div class="item item-body">
-        <img class="full-image" src="{{ news.image }}">
+        <img class="full-image" data-ng-src="{{ news.image }}">
         <p ng-bind-html="news.texte"></p>
         <p ng-if="news.additionalText">{{ news.additionalText }}</p>
         <div ng-repeat="video in news.videos">
-           <p ng-bind-html="video.embed_code"></p>
-            {{ video.embed_code }}
+           <p ng-bind-html="video.embed_code|trustAsHtml"></p>
         </div>
         <p>
           <a href="#" class="subdued">n Like</a>
