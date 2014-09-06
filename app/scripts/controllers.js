@@ -7,7 +7,6 @@ angular.module('MetalorgieMobile.controllers', [])
     $scope.noMoreItemsAvailable = false;
 
     $scope.loadMore = function() {
-        console.log('loadMore');
         var newsPromise = News.find($scope.news.length, 40);
         newsPromise.then(function(result) {  // this is only run after $http completes
             $scope.news.push.apply($scope.news, result);
@@ -15,6 +14,14 @@ angular.module('MetalorgieMobile.controllers', [])
                 $scope.noMoreItemsAvailable = true;
             }
             $scope.$broadcast('scroll.infiniteScrollComplete');
+        });
+    };
+
+    $scope.doRefresh = function() {
+        var newsPromise = News.find(0, 40);
+        newsPromise.then(function(result) {  // this is only run after $http completes
+            $scope.news.push.apply($scope.news, result);
+            $scope.$broadcast('scroll.refreshComplete');
         });
     };
 
@@ -28,6 +35,13 @@ angular.module('MetalorgieMobile.controllers', [])
     var newsDetailPromise = News.get($stateParams.newsId);
     newsDetailPromise.then(function(result) {
         $scope.news = result;
+    });
+})
+
+.controller('BandDetailCtrl', function($scope, $stateParams, Band) {
+    var bandDetailPromise = Band.get($stateParams.slug);
+    bandDetailPromise.then(function(result) {
+        $scope.band = result;
     });
 })
 

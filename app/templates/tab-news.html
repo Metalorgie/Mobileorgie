@@ -1,10 +1,14 @@
 <ion-view>
   <ion-content class="has-header">
+        <ion-refresher
+              pulling-text="Tirer pour rafraîchir"
+              on-refresh="doRefresh()">
+        </ion-refresher>
         <ion-list can-swipe="true">
-          <ion-item class="item-text-wrap item-icon-left item-thumbnail-right" ng-repeat="new in news" type="item-text-wrap" href="#/tab/news/{{new.id}}">
-              <img ng-src="{{ new.image }}">
-              <i class="icon ion-ios7-circle-filled"></i>
-              <p ng-bind-html="new.texte"></p>
+          <ion-item class="item-text-wrap item-icon-left item-thumbnail-right" data-ng-repeat="new in news" type="item-text-wrap" href="#/tab/news/{{new.id}}">
+              <img data-ng-src="{{ new.image }}">
+              <i class="icon ion-ios7-circle-filled {{ new.type }}"></i>
+              <p data-ng-bind-html="new.texte|convertLink"></p>
               <ion-option-button class="button-positive" ng-click="share(item)">
                   <i class="icon ion-ios7-upload-outline"></i>
               </ion-option-button>

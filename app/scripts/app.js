@@ -53,6 +53,15 @@ angular.module('MetalorgieMobile', ['ionic', 'config', 'MetalorgieMobile.control
           }
       }
   })
+  .state('tab.band-detail', {
+      url: '/groupe/:slug',
+      views: {
+          'tab-news': {
+              templateUrl: 'templates/band-detail.html',
+              controller: 'BandDetailCtrl'
+          }
+      }
+  })
   .state('tab.lives', {
       url: '/lives',
       views: {
@@ -68,10 +77,5 @@ angular.module('MetalorgieMobile', ['ionic', 'config', 'MetalorgieMobile.control
   $urlRouterProvider.otherwise('/tab/news');
 
 })
-
-    .filter('trustAsHtml', function($sce){
-        return function(input) {
-            return $sce.trustAsHtml(input);
-        }
-    });
+;
 

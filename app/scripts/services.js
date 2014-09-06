@@ -35,6 +35,24 @@ angular.module('MetalorgieMobile.services', [])
     };
 }])
 
+.factory('Band', ['$http', "$q", "ENV", function($http, $q, ENV) {
+    var baseUrl = 'band.php';
+    return {
+        get: function(slug) {
+            var deferred = $q.defer();
+            var filters = [{property:'slug', value:slug}];
+            $http({method : 'GET',url : ENV.apiEndpoint + baseUrl + '?filter=' + angular.toJson(filters)})//, headers: { 'X-Parse-Application-Id':'XXXXXXXXXXXXX', 'X-Parse-REST-API-Key':'YYYYYYYYYYYYY'}
+                .success(function(data, status) {
+                    deferred.resolve(data);
+                })
+                .error(function(data, status) {
+                    alert("Error");
+                });
+            return deferred.promise;
+        }
+    };
+}])
+
 .factory('Lives', ['$http', "$q", "ENV", function($http, $q, ENV) {
     var baseUrl = 'lives.php';
     return {
