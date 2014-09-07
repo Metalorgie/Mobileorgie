@@ -18,14 +18,18 @@
            <p data-ng-bind-html="video.embed_code|trustAsHtml"></p>
         </div>
         <p>
-          <a href="#" class="subdued">n Like</a>
-          <a href="#" class="subdued">{{ news.comments }} Comments</a>
-        </p>
-      </div>
-      <div class="item tabs tabs-secondary tabs-icon-left">
-        <a class="tab-item" href="#">
-          <i class="icon ion-thumbsup"></i> Like
-        </a>
+            <!-- TODO : check if we can have this information
+            <a href="#" class="subdued">n Like</a>
+            -->
+            <a href="#" class="subdued">{{ news.comments }} Comments</a>
+          </p>
+        </div>
+        <div class="item tabs tabs-secondary tabs-icon-left">
+         <!-- TODO : check if we can add FB Like?
+          <a class="tab-item" href="#">
+            <i class="icon ion-thumbsup"></i> Like
+          </a>
+          -->
        <!-- TODO : When user account is available on mobile
         <a class="tab-item" href="#">
           <i class="icon ion-chatbox"></i> Comment

@@ -12,6 +12,15 @@
             </div>
             <div class="item item-body">
                 <img data-ng-src="{{ album.image }}">
+                <p data-ng-bind-html="album.tracklist|trustAsHtml"></p>
+            </div>
+            <div ui-if="!!album.reviews.length">
+                <h2>Chronique</h2>
+                <div data-ng-repeat="review in album.reviews">
+                    {{ review.rate }}
+                    <p data-ng-bind-html="review.text|trustAsHtml|convertLink"></p>
+                    <strong>{{ review.redactor.name }}</strong>
+                </div>
             </div>
         </div>
     </ion-content>

@@ -62,6 +62,15 @@ angular.module('MetalorgieMobile', ['ionic', 'config', 'MetalorgieMobile.control
           }
       }
   })
+  .state('tab.album-detail', {
+      url: '/band/:slug/album/:id',
+      views: {
+          'tab-band': {
+              templateUrl: 'templates/album-detail.html',
+              controller: 'AlbumCtrl'
+          }
+      }
+  })
   .state('tab.lives', {
       url: '/lives',
       views: {

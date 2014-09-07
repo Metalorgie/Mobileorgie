@@ -2,11 +2,16 @@ angular.module('MetalorgieMobile.filters', [])
 
 .filter('trustAsHtml', function($sce){
     return function(input) {
-        return $sce.trustAsHtml(input);
+        var res = $sce.trustAsHtml(input);
+        if (typeof res !== "undefined") {
+            return res.toString();
+        }
+        return input;
     }
 })
 .filter('convertLink', function ($sce){
         return function(input) {
+            console.log(input);
             var regex = /http:\/\/www\.metalorgie\.com\/(groupe|news)\/([^_\/"]+)[^"]*/g;
             var matches = [], found;
             while (found = regex.exec(input)) {
