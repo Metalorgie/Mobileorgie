@@ -2,6 +2,7 @@
 angular.module('MetalorgieMobile.controllers', [])
 
 .controller('NewsCtrl', function($scope, News) {
+    if(typeof analytics !== "undefined") { analytics.trackView("News Controller"); }
     $scope.news = [];
 
     $scope.noMoreItemsAvailable = false;
@@ -15,6 +16,7 @@ angular.module('MetalorgieMobile.controllers', [])
             }
             $scope.$broadcast('scroll.infiniteScrollComplete');
         });
+        if(typeof analytics !== "undefined") { analytics.trackEvent('News', 'LoadMore'); }
     };
 
     $scope.doRefresh = function() {
@@ -23,6 +25,7 @@ angular.module('MetalorgieMobile.controllers', [])
             $scope.news.push.apply($scope.news, result);
             $scope.$broadcast('scroll.refreshComplete');
         });
+        if(typeof analytics !== "undefined") { analytics.trackEvent('News', 'DoRefresh'); }
     };
 
     var newsPromise = News.last();
@@ -32,6 +35,7 @@ angular.module('MetalorgieMobile.controllers', [])
 })
 
 .controller('NewsDetailCtrl', function($scope, $stateParams, News) {
+    if(typeof analytics !== "undefined") { analytics.trackView("News Detail Controller"); }
     var newsDetailPromise = News.get($stateParams.newsId);
     newsDetailPromise.then(function(result) {
         $scope.news = result;

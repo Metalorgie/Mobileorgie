@@ -77,5 +77,13 @@ angular.module('MetalorgieMobile', ['ionic', 'config', 'MetalorgieMobile.control
   $urlRouterProvider.otherwise('/tab/news');
 
 })
-;
+    .run(function($ionicPlatform, $ionicPopup) {
+        $ionicPlatform.ready(function() {
+            if(typeof analytics !== "undefined") {
+                analytics.startTrackerWithId("UA-340766-1");
+            } else {
+                console.log("Google Analytics Unavailable");
+            }
+        });
+    });
 
