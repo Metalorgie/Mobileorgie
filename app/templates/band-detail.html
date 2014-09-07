@@ -8,10 +8,22 @@
   <ion-content has-header="true" padding="true">
     <div class="list card">
       <div class="item item-divider">
-        {{ band.id }}
+        {{ band.name }}
       </div>
       <div class="item item-body">
+          <img data-ng-src="{{ band.image }}">
+          <h2>Biographie</h2>
+          <p data-ng-bind-html="band.bio|convertLink"></p>
+          <h2>Discographie</h2>
+          <ion-list>
+              <ion-item class="item-text-wrap item-thumbnail-left" data-ng-repeat="album in band.discography" type="item-text-wrap" href="#/tab/groupe/{{band.slug}}/album/{{album.id}}">
+                  <img data-ng-src="{{ album.image }}">
+                  <h3>{{ album.name }}</h3>
+                  <p>{{album.year}}</p>
+              </ion-item>
+          </ion-list>
       </div>
+
     </div>
   </ion-content>
 </ion-view>

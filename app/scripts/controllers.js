@@ -45,6 +45,13 @@ angular.module('MetalorgieMobile.controllers', [])
     });
 })
 
+.controller('AlbumCtrl', function($scope, $stateParams, Band) {
+    var albumPromise = Band.get($stateParams.id);
+        albumPromise.then(function(result) {
+        $scope.album = result;
+    });
+})
+
 .controller('ReleasesCtrl', function($scope) {
 
 })

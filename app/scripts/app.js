@@ -56,7 +56,7 @@ angular.module('MetalorgieMobile', ['ionic', 'config', 'MetalorgieMobile.control
   .state('tab.band-detail', {
       url: '/groupe/:slug',
       views: {
-          'tab-news': {
+          'tab-band': {
               templateUrl: 'templates/band-detail.html',
               controller: 'BandDetailCtrl'
           }

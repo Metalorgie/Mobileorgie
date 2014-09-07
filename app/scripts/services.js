@@ -15,7 +15,7 @@ angular.module('MetalorgieMobile.services', [])
                     deferred.resolve(data);
                 })
                 .error(function(data, status) {
-                    alert("Error");
+                    console.log('Error');
                 });
 
             return deferred.promise;
@@ -28,7 +28,7 @@ angular.module('MetalorgieMobile.services', [])
                     deferred.resolve(data);
                 })
                 .error(function(data, status) {
-                    alert("Error");
+                    console.log('Error');
                 });
             return deferred.promise;
         }
@@ -46,7 +46,25 @@ angular.module('MetalorgieMobile.services', [])
                     deferred.resolve(data);
                 })
                 .error(function(data, status) {
-                    alert("Error");
+                    console.log('Error');
+                });
+            return deferred.promise;
+        }
+    };
+}])
+
+.factory('Album', ['$http', "$q", "ENV", function($http, $q, ENV) {
+    var baseUrl = 'album.php';
+    return {
+        get: function(id) {
+            var deferred = $q.defer();
+            var filters = [{property:'id', value:id}];
+            $http({method : 'GET',url : ENV.apiEndpoint + baseUrl + '?filter=' + angular.toJson(filters)})//, headers: { 'X-Parse-Application-Id':'XXXXXXXXXXXXX', 'X-Parse-REST-API-Key':'YYYYYYYYYYYYY'}
+                .success(function(data, status) {
+                    deferred.resolve(data);
+                })
+                .error(function(data, status) {
+                    console.log('Error');
                 });
             return deferred.promise;
         }
@@ -76,7 +94,7 @@ angular.module('MetalorgieMobile.services', [])
                     deferred.resolve(data);
                 })
                 .error(function(data, status) {
-                    alert("Error");
+                    console.log('Error');
                 });
             return deferred.promise;
         }
