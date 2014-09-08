@@ -60,11 +60,23 @@ angular.module('MetalorgieMobile.controllers', [])
 
 })
 
-.controller('LivesCtrl', function($scope, Lives) {
-    var livesPromise = Lives.incoming();
-    livesPromise.then(function(result) {  // this is only run after $http completes
-        $scope.lives = result;
-    });
+.controller('LivesCtrl', function($scope, Lives, $cordovaGeolocation) {
+    $cordovaGeolocation
+        .getCurrentPosition()
+        .then(function (position) {
+            var lat  = position.coords.latitude;
+            var long = position.coords.longitude;
+
+            var livesPromise = Lives.incoming(lat, long);
+            livesPromise.then(function(result) {  // this is only run after $http completes
+                $scope.lives = result;
+            });
+
+            console.log(lat);
+            console.log(long);
+        }, function(err) {
+            // error
+        });
 })
 
 .controller('BandsCtrl', function($scope) {

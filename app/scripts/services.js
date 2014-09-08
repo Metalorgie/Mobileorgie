@@ -75,14 +75,15 @@ angular.module('MetalorgieMobile.services', [])
     var baseUrl = 'lives.php';
     return {
         lives: [],
-        incoming: function() {
+        incoming: function(lat, long) {
             var deferred = $q.defer();
-            $http({method : 'GET',url : ENV.apiEndpoint + baseUrl})//, headers: { 'X-Parse-Application-Id':'XXXXXXXXXXXXX', 'X-Parse-REST-API-Key':'YYYYYYYYYYYYY'}
+            var filters = [{property:'lat', value:lat}, {property:'long', value:long}];
+            $http({method : 'GET',url : ENV.apiEndpoint + baseUrl + '?filter=' + angular.toJson(filters)})//, headers: { 'X-Parse-Application-Id':'XXXXXXXXXXXXX', 'X-Parse-REST-API-Key':'YYYYYYYYYYYYY'}
                 .success(function(data, status) {
                     deferred.resolve(data);
                 })
                 .error(function(data, status) {
-                    alert("Error");
+                    console.log('Error');
                 });
 
             return deferred.promise;
