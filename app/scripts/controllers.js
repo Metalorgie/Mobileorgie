@@ -65,15 +65,16 @@ angular.module('MetalorgieMobile.controllers', [])
             if(typeof analytics !== "undefined") { analytics.trackEvent('Bands', 'LoadMore'); }
         };
 
-        //$scope.query = '';
+        $scope.query = {term: ''};
 
         $scope.search = function() {
-            console.log($scope.searchTerm);
-            var bandsPromise = Band.search($scope.searchTerm, 0, 40);
-            bandsPromise.then(function(result) {  // this is only run after $http completes
-                $scope.bands = result;
-            });
-            if(typeof analytics !== "undefined") { analytics.trackEvent('Bands', 'Search'); }
+            if ($scope.query.term.length > 2) {
+                var bandsPromise = Band.search($scope.query.term, 0, 40);
+                bandsPromise.then(function(result) {  // this is only run after $http completes
+                    $scope.bands = result;
+                });
+                if(typeof analytics !== "undefined") { analytics.trackEvent('Bands', 'Search'); }
+            }
         };
 })
 
