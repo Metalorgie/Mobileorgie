@@ -53,10 +53,19 @@ angular.module('MetalorgieMobile', ['ionic', 'config', 'ngCordova', 'MetalorgieM
           }
       }
   })
-  .state('tab.band-detail', {
-      url: '/groupe/:slug',
+  .state('tab.bands', {
+      url: '/bands',
       views: {
-          'tab-band': {
+          'tab-bands': {
+              templateUrl: 'templates/tab-bands.html',
+              controller: 'BandsCtrl'
+          }
+      }
+  })
+  .state('tab.band-detail', {
+      url: '/band/:slug',
+      views: {
+          'tab-bands': {
               templateUrl: 'templates/band-detail.html',
               controller: 'BandDetailCtrl'
           }

@@ -42,6 +42,41 @@ angular.module('MetalorgieMobile.controllers', [])
     });
 })
 
+.controller('BandsCtrl', function($scope, Band) {
+        if(typeof analytics !== "undefined") { analytics.trackView("Bands Controller"); }
+
+        $scope.bands = [];
+
+        //if(typeof analytics !== "undefined") { analytics.trackView("Bands Controller"); }
+        var bandsPromise = Band.latest(0,40);
+        bandsPromise.then(function(result) {
+            $scope.bands = result;
+        });
+
+        $scope.loadMore = function() {
+            var bandsPromise = Band.latest($scope.bands.length, 40);
+            bandsPromise.then(function(result) {  // this is only run after $http completes
+                $scope.bands.push.apply($scope.bands, result);
+                if ( $scope.bands.length == 10000 ) {
+                    $scope.noMoreItemsAvailable = true;
+                }
+                $scope.$broadcast('scroll.infiniteScrollComplete');
+            });
+            if(typeof analytics !== "undefined") { analytics.trackEvent('Bands', 'LoadMore'); }
+        };
+
+        //$scope.query = '';
+
+        $scope.search = function() {
+            console.log($scope.searchTerm);
+            var bandsPromise = Band.search($scope.searchTerm, 0, 40);
+            bandsPromise.then(function(result) {  // this is only run after $http completes
+                $scope.bands = result;
+            });
+            if(typeof analytics !== "undefined") { analytics.trackEvent('Bands', 'Search'); }
+        };
+})
+
 .controller('BandDetailCtrl', function($scope, $stateParams, Band) {
     var bandDetailPromise = Band.get($stateParams.slug);
     bandDetailPromise.then(function(result) {
@@ -78,7 +113,4 @@ angular.module('MetalorgieMobile.controllers', [])
             // error
         });
 })
-
-.controller('BandsCtrl', function($scope) {
-
-});
+;

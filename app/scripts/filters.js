@@ -11,7 +11,6 @@ angular.module('MetalorgieMobile.filters', [])
 })
 .filter('convertLink', function ($sce){
         return function(input) {
-            console.log(input);
             var regex = /http:\/\/www\.metalorgie\.com\/(groupe|news)\/([^_\/"]+)[^"]*/g;
             var matches = [], found;
             while (found = regex.exec(input)) {
@@ -32,7 +31,7 @@ angular.module('MetalorgieMobile.filters', [])
                         link = '#/tab/news/' + toChange.id;
                         break;
                     case 'groupe':
-                        link = '#/tab/groupe/' + toChange.id;
+                        link = '#/tab/band/' + toChange.id;
                         break;
                 }
                 if (link != null) {

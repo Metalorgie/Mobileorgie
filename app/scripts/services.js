@@ -49,6 +49,31 @@ angular.module('MetalorgieMobile.services', [])
                     console.log('Error');
                 });
             return deferred.promise;
+        },
+        latest: function(start, nb) {
+            var deferred = $q.defer();
+            $http({method : 'GET',url : ENV.apiEndpoint + baseUrl + '?start=' + start + '&limit=' + nb})//, headers: { 'X-Parse-Application-Id':'XXXXXXXXXXXXX', 'X-Parse-REST-API-Key':'YYYYYYYYYYYYY'}
+                .success(function(data, status) {
+                    deferred.resolve(data);
+                })
+                .error(function(data, status) {
+                    console.log('Error');
+                });
+
+            return deferred.promise;
+        },
+        search: function(query, start, nb) {
+            var deferred = $q.defer();
+            var filters = [{property:'name', value:query}];
+            $http({method : 'GET',url : ENV.apiEndpoint + baseUrl + '?filter=' + angular.toJson(filters) + '&start=' + start + '&limit=' + nb})//, headers: { 'X-Parse-Application-Id':'XXXXXXXXXXXXX', 'X-Parse-REST-API-Key':'YYYYYYYYYYYYY'}
+                .success(function(data, status) {
+                    deferred.resolve(data);
+                })
+                .error(function(data, status) {
+                    console.log('Error');
+                });
+
+            return deferred.promise;
         }
     };
 }])
