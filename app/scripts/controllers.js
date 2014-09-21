@@ -96,7 +96,7 @@ angular.module('MetalorgieMobile.controllers', [])
 
 })
 
-.controller('LivesCtrl', function($scope, Lives, $cordovaGeolocation, $ionicPopup) {
+.controller('LivesCtrl', function($scope, Lives, $cordovaGeolocation, $ionicPopup, City) {
     $cordovaGeolocation
         .getCurrentPosition()
         .then(function (position) {
@@ -115,26 +115,27 @@ angular.module('MetalorgieMobile.controllers', [])
         });
 
         $scope.data = {};
-        $scope.cities = {};
+        $scope.cities = [];
 
         $scope.searchCity = function() {
-            //For test
-            $scope.cities = [
-                {name:'Paris', zip: '75000'},
-                {name:'Nantes', zip: '44000'},
-            ];
+            var cityPromise = City.search($scope.data.city);
+            cityPromise.then(function(result) {
+                $scope.cities = result;
+            });
         };
+
+        var popup = null;
 
         $scope.showChooseCity = function() {
             // An elaborate, custom popup
-            var myPopup = $ionicPopup.show({
+            popup = $ionicPopup.show({
                 templateUrl: 'templates/popup-choose-city.html',
                 title: 'Choisissez une ville',
                 subTitle: 'Taper le nom de la ville',
                 scope: $scope,
                 buttons: [
                     { text: 'Annuler' },
-                    {
+                   /* {
                         text: '<b>Chercher</b>',
                         type: 'button-positive',
                         onTap: function(e) {
@@ -144,11 +145,19 @@ angular.module('MetalorgieMobile.controllers', [])
                                 return $scope.data.city;
                             }
                         }
-                    },
+                    },*/
                 ]
             });
-            myPopup.then(function(res) {
+            popup.then(function(res) {
                 console.log('Tapped!', res);
+            });
+        };
+
+        $scope.chooseCity = function(city) {
+            var livesPromise = Lives.incoming(city.lat, city.long);
+            livesPromise.then(function(result) {  // this is only run after $http completes
+                $scope.lives = result;
+                popup.close();
             });
         };
 })

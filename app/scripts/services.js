@@ -126,4 +126,23 @@ angular.module('MetalorgieMobile.services', [])
         }
     };
 }])
+
+    .factory('City', ['$http', "$q", "ENV", function($http, $q, ENV) {
+        var baseUrl = 'cities.php';
+        return {
+            search: function(name) {
+                var deferred = $q.defer();
+                var filters = [{property:'name', value:name}];
+                $http({method : 'GET',url : ENV.apiEndpoint + baseUrl + '?filter=' + angular.toJson(filters)})//, headers: { 'X-Parse-Application-Id':'XXXXXXXXXXXXX', 'X-Parse-REST-API-Key':'YYYYYYYYYYYYY'}
+                    .success(function(data, status) {
+                        deferred.resolve(data);
+                    })
+                    .error(function(data, status) {
+                        console.log('Error');
+                    });
+
+                return deferred.promise;
+            }
+        };
+    }])
 ;
