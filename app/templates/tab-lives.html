@@ -1,6 +1,6 @@
 <ion-view>
   <ion-nav-buttons side="right">
-      <button class="button button-icon icon ion-ios7-navigate-outline" ng-click="geolocate()"></button>
+      <button class="button button-icon icon ion-ios7-navigate-outline" ng-click="showChooseCity($event)"></button>
   </ion-nav-buttons>
   <ion-content class="has-header">
     <ion-list>
@@ -12,3 +12,13 @@
     </ion-list>
   </ion-content>
 </ion-view>
+<script id="my-popover.html" type="text/ng-template">
+    <ion-popover-view>
+        <ion-header-bar>
+            <h1 class="title">My Popover Title</h1>
+        </ion-header-bar>
+        <ion-content>
+            Hello!
+        </ion-content>
+    </ion-popover-view>
+</script>

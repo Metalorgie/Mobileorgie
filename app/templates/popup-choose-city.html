@@ -1,0 +1,6 @@
+<input type="text" ng-model="data.city" ng-change="searchCity()">
+<ion-list>
+    <ion-item class="item-text-wrap" data-ng-repeat="cities in city" type="item-text-wrap">
+        <h2>{{ city.name }}</h2> ({{ city.zip }})
+    </ion-item>
+</ion-list>

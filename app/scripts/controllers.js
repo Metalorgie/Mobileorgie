@@ -96,7 +96,7 @@ angular.module('MetalorgieMobile.controllers', [])
 
 })
 
-.controller('LivesCtrl', function($scope, Lives, $cordovaGeolocation) {
+.controller('LivesCtrl', function($scope, Lives, $cordovaGeolocation, $ionicPopup) {
     $cordovaGeolocation
         .getCurrentPosition()
         .then(function (position) {
@@ -113,5 +113,43 @@ angular.module('MetalorgieMobile.controllers', [])
         }, function(err) {
             // error
         });
+
+        $scope.data = {};
+        $scope.cities = {};
+
+        $scope.searchCity = function() {
+            //For test
+            $scope.cities = [
+                {name:'Paris', zip: '75000'},
+                {name:'Nantes', zip: '44000'},
+            ];
+        };
+
+        $scope.showChooseCity = function() {
+            // An elaborate, custom popup
+            var myPopup = $ionicPopup.show({
+                templateUrl: 'templates/popup-choose-city.html',
+                title: 'Choisissez une ville',
+                subTitle: 'Taper le nom de la ville',
+                scope: $scope,
+                buttons: [
+                    { text: 'Annuler' },
+                    {
+                        text: '<b>Chercher</b>',
+                        type: 'button-positive',
+                        onTap: function(e) {
+                            if (!$scope.data.city) {
+                                e.preventDefault();
+                            } else {
+                                return $scope.data.city;
+                            }
+                        }
+                    },
+                ]
+            });
+            myPopup.then(function(res) {
+                console.log('Tapped!', res);
+            });
+        };
 })
 ;
