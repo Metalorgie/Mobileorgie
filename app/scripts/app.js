@@ -30,60 +30,60 @@ angular.module('MetalorgieMobile', ['ionic', 'config', 'ngCordova', 'MetalorgieM
   $stateProvider
 
     // setup an abstract state for the tabs directive
-    .state('tab', {
-      url: '/tab',
+    .state('app', {
+      url: '/app',
       abstract: true,
-      templateUrl: 'templates/tabs.html'
+      templateUrl: 'templates/menu.html'
     })
-  .state('tab.news', {
+  .state('app.news', {
       url: '/news',
       views: {
-          'tab-news': {
+          'menuContent': {
               templateUrl: 'templates/tab-news.html',
               controller: 'NewsCtrl'
           }
       }
   })
-  .state('tab.news-detail', {
+  .state('app.news-detail', {
       url: '/news/:newsId',
       views: {
-          'tab-news': {
+          'menuContent': {
               templateUrl: 'templates/news-detail.html',
               controller: 'NewsDetailCtrl'
           }
       }
   })
-  .state('tab.bands', {
+  .state('app.bands', {
       url: '/bands',
       views: {
-          'tab-bands': {
+          'menuContent': {
               templateUrl: 'templates/tab-bands.html',
               controller: 'BandsCtrl'
           }
       }
   })
-  .state('tab.band-detail', {
+  .state('app.band-detail', {
       url: '/band/:slug',
       views: {
-          'tab-bands': {
+          'menuContent': {
               templateUrl: 'templates/band-detail.html',
               controller: 'BandDetailCtrl'
           }
       }
   })
-  .state('tab.album-detail', {
+  .state('app.album-detail', {
       url: '/band/:slug/album/:id',
       views: {
-          'tab-band': {
+          'menuContent': {
               templateUrl: 'templates/album-detail.html',
               controller: 'AlbumCtrl'
           }
       }
   })
-  .state('tab.lives', {
+  .state('app.lives', {
       url: '/lives',
       views: {
-          'tab-lives': {
+          'menuContent': {
               templateUrl: 'templates/tab-lives.html',
               controller: 'LivesCtrl'
           }
@@ -92,7 +92,7 @@ angular.module('MetalorgieMobile', ['ionic', 'config', 'ngCordova', 'MetalorgieM
   ;
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/news');
+  $urlRouterProvider.otherwise('/app/news');
 
 })
     .run(function($ionicPlatform, $ionicPopup) {

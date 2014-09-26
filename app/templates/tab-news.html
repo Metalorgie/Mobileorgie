@@ -5,7 +5,7 @@
               on-refresh="doRefresh()">
         </ion-refresher>
         <ion-list can-swipe="true">
-          <ion-item class="item-text-wrap item-icon-left item-thumbnail-right" data-ng-repeat="new in news" type="item-text-wrap" href="#/tab/news/{{new.id}}">
+          <ion-item class="item-text-wrap item-icon-left item-thumbnail-right" data-ng-repeat="new in news" type="item-text-wrap" href="#/app/news/{{new.id}}">
               <img data-ng-src="{{ new.image }}">
               <i class="icon ion-ios7-circle-filled {{ new.kind }}"></i>
               <p data-ng-bind-html="new.texte|convertLink"></p>
@@ -20,3 +20,5 @@
       <ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="loadMore()" distance="10%"></ion-infinite-scroll>
   </ion-content>
 </ion-view>
+
+

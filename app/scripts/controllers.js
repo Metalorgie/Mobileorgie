@@ -1,6 +1,12 @@
 'use strict';
 angular.module('MetalorgieMobile.controllers', [])
 
+.controller('AppController', function($scope, $ionicSideMenuDelegate) {
+    $scope.toggleLeft = function() {
+        $ionicSideMenuDelegate.toggleLeft();
+    };
+})
+
 .controller('NewsCtrl', function($scope, News) {
     if(typeof analytics !== "undefined") { analytics.trackView("News Controller"); }
     $scope.news = [];

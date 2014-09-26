@@ -28,10 +28,10 @@ angular.module('MetalorgieMobile.filters', [])
                 var link = null;
                 switch(toChange.type)  {
                     case 'news':
-                        link = '#/tab/news/' + toChange.id;
+                        link = '#/app/news/' + toChange.id;
                         break;
                     case 'groupe':
-                        link = '#/tab/band/' + toChange.id;
+                        link = '#/app/band/' + toChange.id;
                         break;
                 }
                 if (link != null) {
