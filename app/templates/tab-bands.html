@@ -5,7 +5,7 @@
             <input type="text" placeholder="Rechercher" ng-model="query.term" ng-change="search()" ng-delay="1500">
         </label>
         <ion-list>
-            <ion-item class="item-text-wrap item-avatar" data-ng-repeat="band in bands" type="item-text-wrap" href="#tab/band/{{band.slug}}">
+            <ion-item class="item-text-wrap item-avatar" data-ng-repeat="band in bands" type="item-text-wrap" href="#app/band/{{band.slug}}">
                 <img data-ng-src="{{ band.image }}">
                 <h2>{{ band.name }}</h2>
                 <p>{{ band.description }} ({{ band.style }})</p>
