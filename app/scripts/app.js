@@ -89,6 +89,24 @@ angular.module('MetalorgieMobile', ['ionic', 'config', 'ngCordova', 'MetalorgieM
           }
       }
   })
+  .state('app.lives.details', {
+      url: '/:id',
+      views: {
+          'menuContent': {
+              templateUrl: 'templates/live-detail.html',
+              controller: 'LiveDetailCtrl'
+          }
+      }
+  })
+  .state('app.releases', {
+      url: '/releases',
+      views: {
+          'menuContent': {
+              templateUrl: 'templates/tab-releases.html',
+              controller: 'ReleasesCtrl'
+          }
+      }
+  })
   ;
 
   // if none of the above states are matched, use this as the fallback

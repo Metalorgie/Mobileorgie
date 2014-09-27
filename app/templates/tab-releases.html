@@ -1,11 +1,20 @@
 <ion-view>
-  <ion-content class="has-header">
-    <ion-list>
-      <ion-item class="item-icon-right" ng-repeat="release in releases" type="item-text-wrap">
-        <h2>{{ live.city }} - {{ live.startDate | date :'dd/MM/yyyy' }}</h2>
-          {{ live.title }} @ {{ live.place }}
-        <i class="icon ion-chevron-right icon-accessory"></i>
-      </ion-item>
-    </ion-list>
-  </ion-content>
+    <ion-content class="has-header">
+        <div class="list">
+
+            <div class="item item-divider"
+                 ng-repeat-start="(date, r) in releases">
+                {{date}}
+            </div>
+
+            <div class="item"
+                 ng-repeat="release in r">
+                <h2>{{ release.band_name }}</h2>
+                {{ release.title }}
+            </div>
+
+            <div ng-repeat-end></div>
+
+        </div>
+    </ion-content>
 </ion-view>
