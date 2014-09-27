@@ -113,9 +113,6 @@ angular.module('MetalorgieMobile.controllers', [])
             livesPromise.then(function(result) {  // this is only run after $http completes
                 $scope.lives = result;
             });
-
-            console.log(lat);
-            console.log(long);
         }, function(err) {
             // error
         });
@@ -140,18 +137,7 @@ angular.module('MetalorgieMobile.controllers', [])
                 subTitle: 'Taper le nom de la ville',
                 scope: $scope,
                 buttons: [
-                    { text: 'Annuler' },
-                   /* {
-                        text: '<b>Chercher</b>',
-                        type: 'button-positive',
-                        onTap: function(e) {
-                            if (!$scope.data.city) {
-                                e.preventDefault();
-                            } else {
-                                return $scope.data.city;
-                            }
-                        }
-                    },*/
+                    { text: 'Annuler' }
                 ]
             });
             popup.then(function(res) {
@@ -161,10 +147,33 @@ angular.module('MetalorgieMobile.controllers', [])
 
         $scope.chooseCity = function(city) {
             var livesPromise = Lives.incoming(city.lat, city.long);
-            livesPromise.then(function(result) {  // this is only run after $http completes
+            livesPromise.then(function(result) {
                 $scope.lives = result;
                 popup.close();
             });
         };
+})
+.controller('LiveDetailCtrl', function($scope, $stateParams, Lives) {
+    var liveDetailPromise = Lives.get($stateParams.slug);
+    liveDetailPromise.then(function(result) {
+        $scope.live = result;
+    });
+})
+
+.controller('ReleasesCtrl', function($scope, Releases, $filter) {
+    var releasesPromise = Releases.incoming();
+    releasesPromise.then(function(releases) {
+        $scope.releases = {};
+        var contactsLength = releases.length;
+        for (var i = 0; i < contactsLength; i++) {
+            var dateStr = $filter('date')(releases[i].date, "dd/MM/yyyy");
+            if(!$scope.releases[dateStr]) {
+                $scope.releases[dateStr] = [];
+            }
+
+            $scope.releases[dateStr].push ( releases[i] );
+        }
+        console.log($scope.releases);
+    });
 })
 ;

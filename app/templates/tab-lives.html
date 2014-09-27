@@ -4,7 +4,7 @@
   </ion-nav-buttons>
   <ion-content class="has-header">
     <ion-list>
-      <ion-item class="item-icon-right" ng-repeat="live in lives" type="item-text-wrap">
+      <ion-item class="item-icon-right" ng-repeat="live in lives" type="item-text-wrap" href="#/app/lives/{{live.id}}">
         <h2>{{ live.city }} <span class="livedate">- {{ live.startDate | date :'dd/MM/yyyy' }}</span></h2>
         <span class="livetitle">{{ live.title }} @ {{ live.place }}<span>
         <i class="icon ion-chevron-right icon-accessory"></i>
