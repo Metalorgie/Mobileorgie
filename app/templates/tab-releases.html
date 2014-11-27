@@ -1,20 +1,16 @@
 <ion-view>
-    <ion-content class="has-header">
+    <ion-content class="has-header releases">
         <div class="list">
-
             <div class="item item-divider"
                  ng-repeat-start="(date, r) in releases">
                 {{date}}
             </div>
-
             <div class="item"
                  ng-repeat="release in r">
                 <h2>{{ release.band_name }}</h2>
                 {{ release.title }}
             </div>
-
             <div ng-repeat-end></div>
-
         </div>
     </ion-content>
 </ion-view>

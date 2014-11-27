@@ -10,6 +10,9 @@ $darkgrey: #262626
 
 /* FONTS */
 $font: Helvetica, sans-serif
+$small: 11px
+$normal: 13px
+$big: 16px
 
 /* BORDER-RADIUS */
 =border-radius($radius)
@@ -20,7 +23,11 @@ $font: Helvetica, sans-serif
 
 /* BORDER */
 =border($style)
-  border: 1px $lightgrey $style
+  border: 1px $lightgrey $style !important
+=borderbottom($style)
+  border-bottom: 1px $lightgrey $style !important
+=bordertop($style)
+  border-top: 1px $lightgrey $style !important
 $greyborder: $grey 1px solid !important
 $lightgreyborder: $lightgrey 1px solid !important
 
@@ -28,14 +35,20 @@ $lightgreyborder: $lightgrey 1px solid !important
 body
   font-family: $font
   color: $black
+  font-size: $normal
 a
   @extend body
   color: $red
 p
   margin: 0
+h2
+  font-weight: bold
+  font-size: $big
 .groupe
   font-weight: bold
   text-decoration: none
+.scroll-content
+  margin: 10px
 
 /* NAV BAR */
 .bar.bar-stable
@@ -45,58 +58,127 @@ p
   .button
     color: $white
 
-/* TAB BAR */
-.tabs:first-child
-  background-color: $white
-  border-top: $greyborder
-  line-height: 47px
-  .tab-item
-    color: $grey
-    opacity: 1
-    span
-      font-weight: bold
-      text-transform: uppercase
-  .tab-item.tab-item-active
-    color: $red
+/* MENU */
+.menu-left
+  .scroll-content
+    margin: 0
+    .scroll
+      .list
+        .item-avatar
+          min-height: 20px
+        .item
+          +border(solid)
+        .first
+          border-top: none
+        .item-content
+          min-height: 20px
+          padding: 13px 45px 12px 70px
+          img
+            max-width: 30px
+            max-height: 30px
+            top: 7px
 
-/* LIST */
-.list
-  .item
-    +border(dashed)
-    .item-content
+/* NEWS LIST */
+.news
+  margin: 0
+  .list
+    margin-top: -1px
+    .item
+      border: none
+      +bordertop(solid)
+      p
+        font-size: $normal
+      .item-content
+        background-color: transparent
+        .icon
+          color: $red
+        .padding
+          +border(solid)
+          padding: 5px
+          margin-top: 10px
+      h2
+        color: $red
+        font-weight: bold
+      .icon-accessory
+        color: $red
+      .item-options
+        .button-positive
+          background-color: $red
+          text-align: center
+        .button-info
+          background-color: $lightgrey        
+
+/* DETAILS */
+.detail
+  margin: 0px 10px 0px 10px
+  strong
+    font-size: $normal
+  .card
+    margin: 0
+    margin-top: -1px
+    padding-top: 10px
+    box-shadow: none
+    .item 
+      //+border(solid)
+      margin: 0 !important
+      p
+        font-size: $normal
+    .item-body
+      margin-top: -1px !important
+      h2
+        margin-top: 10px
+        margin-bottom: 10px
+      p
+        margin-top: 5px
+        margin-bottom: 5px
+      .list
+        .item
+          .icon
+            color: $red
+      .center
+        text-align: center
+      .additional
+        font-size: $small
+        +bordertop(dashed)
+        +borderbottom(dashed)
+        padding: 5px
+        a
+          font-size: $small
+    .item-divider
+      color: $grey
       background-color: transparent
+    .tabs-secondary
+      border-bottom: $lightgreyborder
+      margin-bottom: -1px !important
+      .tab-item 
+        .icon
+          font-size: 24px
+
+/* BANDS LIST */
+.bands
+  margin: 0
+  .scroll
+    .item-input-inset
+      padding: 10px
+  .list
+    .item
       .icon
         color: $red
-      .padding
-        +border(solid)
-        padding: 5px
-        margin-top: 10px
-    h2
-      color: $red
-      font-weight: bold
-      .livedate
-        color: $grey
-        font-weight: normal
-    .livetitle
-      font-weight: bold
-    .icon-accessory
-      color: $red
-    .item-options
-      .button-positive
-        background-color: $red
-        text-align: center
-      .button-info
-        background-color: $lightgrey
 
-/* CARD */
-.card
-  .item 
-    +border(solid)
-    margin: 0 !important
-  .item-body
-    margin-top: -1px !important
-  .item-divider
-    color: $grey
-  .tabs-secondary
-    border-bottom: $lightgreyborder
-    margin-bottom: -1px !important
+/* LIVES LIST */
+.lives
+  margin: 0
+  .list
+    margin-top: -1px
+    .item
+      .icon
+        color: $red
+
+/* RELEASES LIST */
+.releases
+  margin: 0
+  .list
+    margin-top: -1px
+    .item-divider
+      color: $grey
+      background-color: transparent

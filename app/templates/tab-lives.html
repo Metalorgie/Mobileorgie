@@ -2,12 +2,12 @@
   <ion-nav-buttons side="right">
       <button class="button button-icon icon ion-ios7-navigate-outline" ng-click="showChooseCity($event)"></button>
   </ion-nav-buttons>
-  <ion-content class="has-header">
+  <ion-content class="has-header lives">
     <ion-list>
       <ion-item class="item-icon-right" ng-repeat="live in lives" type="item-text-wrap" href="#/app/lives/{{live.id}}">
-        <h2>{{ live.city }} <span class="livedate">- {{ live.startDate | date :'dd/MM/yyyy' }}</span></h2>
-        <span class="livetitle">{{ live.title }} @ {{ live.place }}<span>
-        <i class="icon ion-chevron-right icon-accessory"></i>
+        <h2>{{ live.title }} @ {{ live.place }}</h2>
+        <p>{{ live.startDate | date :'dd/MM/yyyy' }} - {{ live.city }}</p>
+        <i class="icon ion-ios7-arrow-right"></i>
       </ion-item>
     </ion-list>
   </ion-content>

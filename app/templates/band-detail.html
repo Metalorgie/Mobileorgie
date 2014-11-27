@@ -1,23 +1,43 @@
 <ion-view>
-  <ion-content has-header="true" padding="true">
-    <div class="list card">
-      <div class="item item-divider">
-        {{ band.name }}
-      </div>
-      <div class="item item-body">
-          <img class="full-image" data-ng-src="{{ band.image }}">
-          <h2>Biographie</h2>
-          <p data-ng-bind-html="band.bio|convertLink"></p>
-          <h2>Discographie</h2>
-          <ion-list>
-              <ion-item class="item-text-wrap item-thumbnail-left" data-ng-repeat="album in band.discography" type="item-text-wrap" href="#/app/band/{{band.slug}}/album/{{album.id}}">
-                  <img data-ng-src="{{ album.image }}">
-                  <h3>{{ album.name }}</h3>
-                  <p>{{album.year}}</p>
-              </ion-item>
-          </ion-list>
-      </div>
+	<ion-content has-header="true" class="detail">
+		<div class="list card">
+			<div class="item item-divider">
+				{{ band.name }}
+				<p>{{ band.style }}</p>
+			</div>
+			<div class="item item-body">
+				<img class="full-image" data-ng-src="{{ band.image }}">
+				<p class="center">{{ band.description }}</p>
+				<h2>Biographie</h2>
+				<p data-ng-bind-html="band.bio|convertLink"></p>
+				<h2>Discographie</h2>
+				<ion-list>
+					<ion-item class="item-text-wrap item-thumbnail-left item-icon-right" data-ng-repeat="album in band.discography" type="item-text-wrap" href="#/app/band/{{band.slug}}/album/{{album.id}}">
 
-    </div>
-  </ion-content>
+						<img data-ng-src="{{ album.image }}">
+						<h3>{{ album.name }}</h3>
+						<p>{{album.year}}</p>
+						<i class="icon ion-ios7-arrow-right"></i>
+					</ion-item>
+				</ion-list>
+			</div>
+			<div class="item tabs tabs-secondary tabs-icon-left">
+                <!-- 
+                TODO : check if we can add FB Like?
+                <a class="tab-item" href="#">
+                    <i class="icon ion-thumbsup"></i> Like
+                </a>
+                -->
+                <!-- 
+                TODO : When user account is available on mobile
+                <a class="tab-item" href="#">
+                    <i class="icon ion-chatbox"></i> Comment
+                </a>
+                -->
+                <a class="tab-item" href="#">
+                    <i class="icon ion-share"></i> Share
+                </a>
+            </div>
+		</div>
+	</ion-content>
 </ion-view>

@@ -1,20 +1,25 @@
 <ion-view>
-  <ion-content class="has-header">
+  <ion-content class="has-header news">
         <ion-refresher
               pulling-text="Tirer pour rafraîchir"
               on-refresh="doRefresh()">
         </ion-refresher>
         <ion-list can-swipe="true">
-          <ion-item class="item-text-wrap item-icon-left item-thumbnail-right" data-ng-repeat="new in news" type="item-text-wrap" href="#/app/news/{{new.id}}">
-              <img data-ng-src="{{ new.image }}">
-              <i class="icon ion-ios7-circle-filled {{ new.kind }}"></i>
+          <ion-item class="item-text-wrap item-icon-right" data-ng-repeat="new in news" type="item-text-wrap" href="#/app/news/{{new.id}}">
+              <!--
+              TODO: Find a way to identify type of news...
+              <p>{{ new.kind }}</p>
+              -->
               <p data-ng-bind-html="new.texte|convertLink"></p>
+              <i class="icon ion-ios7-arrow-right"></i>
+              <!--
               <ion-option-button class="button-positive" ng-click="share(item)">
                   <i class="icon ion-ios7-upload-outline"></i>
               </ion-option-button>
               <ion-option-button class="button-info" ng-click="edit(item)">
                   <i class="icon ion-ios7-search"></i>
               </ion-option-button>
+              -->
           </ion-item>
         </ion-list>
       <ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="loadMore()" distance="10%"></ion-infinite-scroll>

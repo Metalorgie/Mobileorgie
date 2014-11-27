@@ -1,14 +1,20 @@
 <ion-view>
-    <ion-content class="has-header">
-        <label class="item-input-wrapper" id="search-input">
-            <i class="icon ion-search placeholder-icon"></i>
-            <input type="text" placeholder="Rechercher" ng-model="query.term" ng-change="search()" ng-delay="1500">
-        </label>
+    <ion-content class="has-header bands">
+        <div class="bar bar-header item-input-inset">
+            <label class="item-input-wrapper" id="search-input">
+                <i class="icon ion-ios7-search placeholder-icon"></i>
+                <input type="search" placeholder="Rechercher"  ng-model="query.term" ng-change="search()" ng-delay="1500">
+            </label>
+            <button class="button button-clear">
+                Cancel
+            </button>
+        </div>
         <ion-list>
-            <ion-item class="item-text-wrap item-avatar" data-ng-repeat="band in bands" type="item-text-wrap" href="#app/band/{{band.slug}}">
+            <ion-item class="item-text-wrap item-avatar item-icon-right" data-ng-repeat="band in bands" type="item-text-wrap" href="#app/band/{{band.slug}}">
                 <img data-ng-src="{{ band.image }}">
                 <h2>{{ band.name }}</h2>
                 <p>{{ band.description }} ({{ band.style }})</p>
+                <i class="icon ion-ios7-arrow-right"></i>
             </ion-item>
         </ion-list>
         <ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="loadMore()" distance="10%"></ion-infinite-scroll>
