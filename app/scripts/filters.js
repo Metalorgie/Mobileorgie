@@ -42,6 +42,25 @@ angular.module('MetalorgieMobile.filters', [])
             return input;
         }
     })
+	// split an array of objects into an array of arrays of objects whose field is identical (fieldName)
+	// ordered by appearance of the field value in the first array
+.filter('divider', function() {
+	return function(input, fieldName){
+		var result = [];
+		var fieldValues = {};
+		if(input){
+			for(var i = 0; i<input.length; i++){
+				var fieldValue = input[i][fieldName];
+				if(fieldValues[fieldValue] == undefined){
+					fieldValues[fieldValue] = result.length;
+					result.push([]);
+				}
+				result[fieldValues[fieldValue]].push(input[i]);
+			}
+		}
+		return result;
+	}
+})
 
 .directive('ngDelay', ['$timeout', function ($timeout) {
     return {
