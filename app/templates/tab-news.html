@@ -3,6 +3,13 @@
 		<ion-refresher pulling-text="Tirer pour rafraîchir" on-refresh="doRefresh()">
 		</ion-refresher>
 		<ion-list can-swipe="true">
+			
+			<!--<div class="item item-divider">
+			</div>-->
+			<ion-item class="item-divider" data-ng-repeat-start="news in newsByDay">
+				{{news[0].date | date :'dd/MM/yyyy'}}
+			</ion-item>
+			
 			<ion-item class="item-text-wrap item-icon-right" data-ng-repeat="new in news" type="item-text-wrap" href="#/app/news/{{new.id}}">
 				<!--
 				TODO: Find a way to identify type of news...
@@ -19,6 +26,7 @@
 				</ion-option-button>
 				-->
 			</ion-item>
+			<div data-ng-repeat-end></div>
 		</ion-list>
 		<ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="loadMore()" distance="10%"></ion-infinite-scroll>
     </ion-content>
