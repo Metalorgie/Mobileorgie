@@ -12,6 +12,10 @@ You must have Grunt installed
 ```
 git clone https://github.com/Metalorgie/Mobileorgie.git
 cd Mobileorgie
+npm install grunt --save-dev
+npm install
+sudo npm install -g bower
+bower install
 grunt serve
 ```
 
