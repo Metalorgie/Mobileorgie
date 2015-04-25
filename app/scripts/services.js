@@ -114,8 +114,9 @@ angular.module('MetalorgieMobile.services', [])
             return deferred.promise;
         },
         get: function(id) {
-            var deferred = $q.defer();
-            $http({method : 'GET',url : ENV.apiEndpoint + baseUrl + '?filters[id]=' + id})//, headers: { 'X-Parse-Application-Id':'XXXXXXXXXXXXX', 'X-Parse-REST-API-Key':'YYYYYYYYYYYYY'}
+            var deferred = $q.defer()
+            var filters = [{property:'id', value:id}];
+            $http({method : 'GET',url : ENV.apiEndpoint + baseUrl + '?filter=' + angular.toJson(filters)})//, headers: { 'X-Parse-Application-Id':'XXXXXXXXXXXXX', 'X-Parse-REST-API-Key':'YYYYYYYYYYYYY'}
                 .success(function(data, status) {
                     deferred.resolve(data);
                 })

@@ -89,8 +89,8 @@ angular.module('MetalorgieMobile', ['ionic', 'config', 'ngCordova', 'MetalorgieM
           }
       }
   })
-  .state('app.lives.details', {
-      url: '/:id',
+  .state('app.lives-details', {
+      url: '/lives/:id',
       views: {
           'menuContent': {
               templateUrl: 'templates/live-detail.html',

@@ -102,10 +102,6 @@ angular.module('MetalorgieMobile.controllers', [])
     });
 })
 
-.controller('ReleasesCtrl', function($scope) {
-
-})
-
 .controller('LivesCtrl', function($scope, Lives, $cordovaGeolocation, $ionicPopup, City) {
     $cordovaGeolocation
         .getCurrentPosition()
@@ -158,7 +154,7 @@ angular.module('MetalorgieMobile.controllers', [])
         };
 })
 .controller('LiveDetailCtrl', function($scope, $stateParams, Lives) {
-    var liveDetailPromise = Lives.get($stateParams.slug);
+    var liveDetailPromise = Lives.get($stateParams.id);
     liveDetailPromise.then(function(result) {
         $scope.live = result;
     });

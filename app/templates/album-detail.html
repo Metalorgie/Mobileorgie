@@ -13,9 +13,6 @@
                     <h2>Chronique</h2>
                     <div data-ng-repeat="review in album.reviews">
                         <rating ng-model="review.rate/2" max="10"></rating>
-                        <!-- 
-                        TODO : Convert grade into stars ? 
-                        -->
                         <p><i class="icon ion-ios7-star"></i> Note : {{ review.rate }}</p>
                         <p data-ng-bind-html="review.text|trustAsHtml|convertLink"></p>
                         <p class="additional" data-ng-if="review.additionalText" data-ng-bind-html="review.additionalText|trustAsHtml"></p>
