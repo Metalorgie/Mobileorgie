@@ -4,7 +4,7 @@
   "dependencies": {},
   "devDependencies": {
     "cordova": "~3.5.0-0.2.6",
-    "grunt": "^0.4.5",
+    "grunt": "~0.4.5",
     "grunt-autoprefixer": "~0.4.0",
     "grunt-bower-install": "~0.7.0",
     "grunt-concurrent": "~0.4.1",
