@@ -9,9 +9,10 @@
                 <img class="full-image" data-ng-src="{{ album.image }}" alt="{{ album.name }}">
                 <h2>Tracklist</h2>
                 <p data-ng-bind-html="album.tracklist|trustAsHtml"></p>
-                <div data-ui-if="!!album.reviews.length">
+                <div ng-if="album.reviews.length > 0">
                     <h2>Chronique</h2>
                     <div data-ng-repeat="review in album.reviews">
+                        <rating ng-model="review.rate/2" max="10"></rating>
                         <!-- 
                         TODO : Convert grade into stars ? 
                         -->

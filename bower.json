@@ -2,7 +2,7 @@
   "name": "MetalorgieMobile",
   "version": "0.0.1",
   "dependencies": {
-    "ionic": "v1.0.0-beta.10",
+    "ionic": "v1.0.0-rc.4",
     "ngCordova": "0.1.3-alpha"
   },
   "devDependencies": {
