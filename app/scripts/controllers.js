@@ -176,4 +176,53 @@ angular.module('MetalorgieMobile.controllers', [])
         console.log($scope.releases);
     });
 })
+
+.controller('ArticlesCtrl', function($scope, Articles) {
+    if(typeof analytics !== "undefined") { analytics.trackView("Articles Controller"); }
+    $scope.articles = [];
+    $scope.noMoreItemsAvailable = false;
+
+    $scope.loadMore = function() {
+        var articlesPromise = Articles.find($scope.articles.length, 20);
+        articlesPromise.then(function(result) {  // this is only run after $http completes
+            $scope.articles.push.apply($scope.articles, result);
+            if ( $scope.articles.length >= 200 ) {
+                $scope.noMoreItemsAvailable = true;
+            }
+            $scope.$broadcast('scroll.infiniteScrollComplete');
+        });
+        if(typeof analytics !== "undefined") { analytics.trackEvent('Articles', 'LoadMore'); }
+    };
+
+    $scope.getTypeName = function(article) {
+        if (article.type == 'live-report') {
+            return 'Live report';
+        } else if (article.type == 'interview') {
+            return 'Interview'
+        } else if (article.type == 'report') {
+            return 'Dossier'
+        }
+    };
+
+    $scope.doRefresh = function() {
+        var articlesPromise = Articles.find(0, 20);
+        articlesPromise.then(function(result) {  // this is only run after $http completes
+            $scope.articles.push.apply($scope.articles, result);
+            $scope.$broadcast('scroll.refreshComplete');
+        });
+        if(typeof analytics !== "undefined") { analytics.trackEvent('Articles', 'DoRefresh'); }
+    };
+
+    var articlesPromise = Articles.last();
+    articlesPromise.then(function(result) {  // this is only run after $http completes
+        $scope.articles = result;
+    });
+})
+.controller('ArticleDetailCtrl', function($scope, $stateParams, Articles) {
+    var articleDetailPromise = Articles.get($stateParams.id);
+    articleDetailPromise.then(function(result) {
+        $scope.article = result;
+    });
+})
+
 ;

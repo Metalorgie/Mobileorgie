@@ -1,0 +1,12 @@
+<ion-view>
+	<ion-content class="has-header articles">
+		<ion-refresher pulling-text="Tirer pour rafraîchir" on-refresh="doRefresh()">
+		</ion-refresher>
+        <ion-list>
+            <ion-item class="item-icon-right" ng-repeat="article in articles" type="item-text-wrap" href="#/app/articles/{{article.id}}">
+                <h2>{{ getTypeName(article) }} : {{ article.title }} - {{ article.place }}</h2>
+            </ion-item>
+        </ion-list>
+		<ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="loadMore()" distance="0%"></ion-infinite-scroll>
+    </ion-content>
+</ion-view>

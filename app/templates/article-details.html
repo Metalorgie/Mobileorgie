@@ -1,0 +1,13 @@
+<ion-view>
+    <ion-content has-header="true" class="detail">
+        <div class="list card">
+            <div class="item item-divider">
+                {{ article.title }} - {{ article.place }}
+            </div>
+            <img class="full-image" ng-if="article.image.length > 0" data-ng-src="{{ article.image }}">
+            <p data-ng-bind-html="article.text|convertLink"></p>
+            <p data-ng-bind-html="article.additional_text|convertLink"></p>
+            
+        </div>
+    </ion-content>
+</ion-view>
