@@ -6,16 +6,16 @@
         </div>
         <div class="row" ng-repeat="image in gallery.images" ng-if="$index % 4 === 0">
             <div class="col col-25" ng-if="$index < images.length">
-                <img ng-src="{{gallery.images[$index].thumbnails}}" width="100%" />
+                <a ng-click="openModal(gallery.images[$index].image)"><img ng-src="{{gallery.images[$index].thumbnails}}" width="100%"/></a>
             </div>
             <div class="col col-25" ng-if="$index + 1 < gallery.images.length">
-                <img ng-src="{{gallery.images[$index + 1].thumbnails}}" width="100%" />
+                <a ng-click="openModal(gallery.images[$index + 1].image)"><img ng-src="{{gallery.images[$index + 1].thumbnails}}" width="100%" /></a>
             </div>
             <div class="col col-25" ng-if="$index + 2 < gallery.images.length">
-                <img ng-src="{{gallery.images[$index + 2].thumbnails}}" width="100%" />
+                <a ng-click="openModal(gallery.images[$index + 2].image)"><img ng-src="{{gallery.images[$index + 2].thumbnails}}" width="100%" /></a>
             </div>
             <div class="col col-25" ng-if="$index + 3 < gallery.images.length">
-                <img ng-src="{{gallery.images[$index + 3].thumbnails}}" width="100%" />
+                <a ng-click="openModal(gallery.images[$index + 3].image)"><img ng-src="{{gallery.images[$index + 3].thumbnails}}" width="100%" /></a>
             </div>
         </div>
     </ion-content>

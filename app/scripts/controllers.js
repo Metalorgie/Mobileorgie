@@ -249,11 +249,42 @@ angular.module('MetalorgieMobile.controllers', [])
         };
     })
 
-.controller('GalleryDetailCtrl', function($scope, $stateParams, Gallery) {
+.controller('GalleryDetailCtrl', function($scope, $stateParams, $ionicModal, Gallery) {
     var galleryDetailPromise = Gallery.get($stateParams.id);
     galleryDetailPromise.then(function(result) {
         $scope.gallery = result;
     });
+
+
+
+    $ionicModal.fromTemplateUrl('templates/picture-modal.html', {
+        scope: $scope,
+        animation: 'slide-in-up'
+    }).then(function(modal) {
+        $scope.modal = modal;
+    });
+
+    $scope.openModal = function(src) {
+        $scope.src = src;
+        $scope.modal.show();
+    };
+    $scope.closeModal = function() {
+        $scope.modal.hide();
+    };
+    //Cleanup the modal when we're done with it!
+    $scope.$on('$destroy', function() {
+        $scope.src = null;
+        $scope.modal.remove();
+    });
+    // Execute action on hide modal
+    $scope.$on('modal.hidden', function() {
+        // Execute action
+    });
+    // Execute action on remove modal
+    $scope.$on('modal.removed', function() {
+        // Execute action
+    });
+
 })
 
 ;
