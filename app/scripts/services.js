@@ -199,5 +199,37 @@ angular.module('MetalorgieMobile.services', [])
             }
         };
     }])
+
+
+
+    .factory('Gallery', ['$http', "$q", "ENV", function($http, $q, ENV) {
+        var baseUrl = 'galleries.php';
+        return {
+            get: function(id) {
+                var deferred = $q.defer();
+                var filters = [{property:'id', value: id}];
+                $http({method : 'GET',url : ENV.apiEndpoint + baseUrl + '?filter=' + angular.toJson(filters)})//, headers: { 'X-Parse-Application-Id':'XXXXXXXXXXXXX', 'X-Parse-REST-API-Key':'YYYYYYYYYYYYY'}
+                    .success(function(data, status) {
+                        deferred.resolve(data);
+                    })
+                    .error(function(data, status) {
+                        console.log('Error');
+                    });
+                return deferred.promise;
+            },
+            latest: function(start, nb) {
+                var deferred = $q.defer();
+                $http({method : 'GET',url : ENV.apiEndpoint + baseUrl + '?start=' + start + '&limit=' + nb})//, headers: { 'X-Parse-Application-Id':'XXXXXXXXXXXXX', 'X-Parse-REST-API-Key':'YYYYYYYYYYYYY'}
+                    .success(function(data, status) {
+                        deferred.resolve(data);
+                    })
+                    .error(function(data, status) {
+                        console.log('Error');
+                    });
+
+                return deferred.promise;
+            }
+        };
+    }])
 ;
 

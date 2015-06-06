@@ -133,6 +133,25 @@ angular.module('MetalorgieMobile', ['ionic', 'config', 'ngCordova', 'MetalorgieM
           }
       }
   })
+  .state('app.galleries', {
+      url: '/galleries',
+      views: {
+          'menuContent': {
+              templateUrl: 'templates/tab-galleries.html',
+              controller: 'GalleriesCtrl'
+          }
+      }
+  })
+
+  .state('app.gallery-details', {
+          url: '/galleries/:id',
+          views: {
+              'menuContent': {
+                  templateUrl: 'templates/gallery-detail.html',
+                  controller: 'GalleryDetailCtrl'
+              }
+          }
+      })
   ;
 
   // if none of the above states are matched, use this as the fallback

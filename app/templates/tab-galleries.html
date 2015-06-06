@@ -1,0 +1,12 @@
+<ion-view>
+    <ion-content class="has-header releases">
+        <ion-list>
+            <ion-item class="item-text-wrap item-avatar item-icon-right" data-ng-repeat="gallery in galleries" type="item-text-wrap" href="#app/galleries/{{gallery.id}}">
+                <h2>{{ gallery.title }}</h2>
+                <p data-ng-bind-html="gallery.description"></p>
+                <i class="icon ion-ios7-arrow-right"></i>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="loadMore()" distance="10%"></ion-infinite-scroll>
+    </ion-content>
+</ion-view>

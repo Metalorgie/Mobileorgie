@@ -225,4 +225,35 @@ angular.module('MetalorgieMobile.controllers', [])
     });
 })
 
+.controller('GalleriesCtrl', function($scope, Gallery) {
+        if(typeof analytics !== "undefined") { analytics.trackView("Galleries Controller"); }
+
+        $scope.galleries = [];
+
+        //if(typeof analytics !== "undefined") { analytics.trackView("Bands Controller"); }
+        var bandsPromise = Gallery.latest(0,40);
+        bandsPromise.then(function(result) {
+            $scope.galleries = result;
+        });
+
+        $scope.loadMore = function() {
+            var galleriesPromise = Gallery.latest($scope.galleries.length, 40);
+            galleriesPromise.then(function(result) {  // this is only run after $http completes
+                $scope.galleries.push.apply($scope.galleries, result);
+                if ( $scope.galleries.length == 1000 ) {
+                    $scope.noMoreItemsAvailable = true;
+                }
+                $scope.$broadcast('scroll.infiniteScrollComplete');
+            });
+            if(typeof analytics !== "undefined") { analytics.trackEvent('Galleries', 'LoadMore'); }
+        };
+    })
+
+.controller('GalleryDetailCtrl', function($scope, $stateParams, Gallery) {
+    var galleryDetailPromise = Gallery.get($stateParams.id);
+    galleryDetailPromise.then(function(result) {
+        $scope.gallery = result;
+    });
+})
+
 ;
