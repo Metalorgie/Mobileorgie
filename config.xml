@@ -9,4 +9,14 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <allow-intent href="*" />
+    <allow-navigation href="*" />
+    <platform name="android">
+        <icon src="res/icons/mipmap-xxxhdpi/ic_launcher.png" density="xxxhdpi" />
+        <icon src="res/icons/mipmap-xxhdpi/ic_launcher.png" density="xxhdpi" />
+        <icon src="res/icons/mipmap-xhdpi/ic_launcher.png" density="xhdpi" />
+        <icon src="res/icons/mipmap-hdpi/ic_launcher.png" density="hdpi" />
+        <icon src="res/icons/mipmap-mdpi/ic_launcher.png" density="mdpi" />
+    </platform>
+    <plugin name="cordova-plugin-whitelist" spec="1" />
 </widget>
