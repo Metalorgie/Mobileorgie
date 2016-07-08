@@ -44,11 +44,15 @@ angular.module('MetalorgieMobile.controllers', [])
     });
 })
 
-.controller('NewsDetailCtrl', function($scope, $stateParams, News) {
+.controller('NewsDetailCtrl', function($scope, $stateParams, News, $sce) {
     if(typeof analytics !== "undefined") { analytics.trackView("News Detail Controller"); }
     var newsDetailPromise = News.get($stateParams.newsId);
     newsDetailPromise.then(function(result) {
         $scope.news = result;
+        var length = $scope.news.videos.length;
+        for(var i = 0; i < length; i++) {
+            $scope.news.videos[i].embedUrl = $sce.trustAsResourceUrl($scope.news.videos[i].embedUrl)
+        }
     });
 })
 
