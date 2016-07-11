@@ -6,7 +6,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('MetalorgieMobile', ['ionic', 'config', 'ngCordova', 'MetalorgieMobile.controllers', 'MetalorgieMobile.services', 'MetalorgieMobile.filters', 'ionic.rating'])
+angular.module('MetalorgieMobile', ['ionic', 'config', 'ngCordova', 'MetalorgieMobile.controllers', 'MetalorgieMobile.services', 'MetalorgieMobile.filters', 'ionic.rating', 'ion-gallery'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {

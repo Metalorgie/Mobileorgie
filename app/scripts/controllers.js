@@ -239,15 +239,7 @@ angular.module('MetalorgieMobile.controllers', [])
 
 .controller('GalleriesCtrl', function($scope, Gallery) {
         if(typeof analytics !== "undefined") { analytics.trackView("Galleries Controller"); }
-
         $scope.galleries = [];
-
-        //if(typeof analytics !== "undefined") { analytics.trackView("Bands Controller"); }
-        var bandsPromise = Gallery.latest(0,40);
-        bandsPromise.then(function(result) {
-            $scope.galleries = result;
-        });
-
         $scope.loadMore = function() {
             var galleriesPromise = Gallery.latest($scope.galleries.length, 40);
             galleriesPromise.then(function(result) {  // this is only run after $http completes
@@ -262,41 +254,23 @@ angular.module('MetalorgieMobile.controllers', [])
     })
 
 .controller('GalleryDetailCtrl', function($scope, $stateParams, $ionicModal, Gallery) {
-    var galleryDetailPromise = Gallery.get($stateParams.id);
-    galleryDetailPromise.then(function(result) {
-        $scope.gallery = result;
-    });
+        $scope.items = [];
 
-
-
-    $ionicModal.fromTemplateUrl('templates/picture-modal.html', {
-        scope: $scope,
-        animation: 'slide-in-up'
-    }).then(function(modal) {
-        $scope.modal = modal;
-    });
-
-    $scope.openModal = function(src) {
-        $scope.src = src;
-        $scope.modal.show();
-    };
-    $scope.closeModal = function() {
-        $scope.modal.hide();
-    };
-    //Cleanup the modal when we're done with it!
-    $scope.$on('$destroy', function() {
-        $scope.src = null;
-        $scope.modal.remove();
-    });
-    // Execute action on hide modal
-    $scope.$on('modal.hidden', function() {
-        // Execute action
-    });
-    // Execute action on remove modal
-    $scope.$on('modal.removed', function() {
-        // Execute action
-    });
-
+        var galleryDetailPromise = Gallery.get($stateParams.id);
+        galleryDetailPromise.then(function(result) {
+            for(var i = 0; i < result.images.length; i++) {
+                var image = result.images[i];
+                $scope.items.push({
+                    src: image.image,
+                    thumb: image.thumbnails,
+                    sub: image.bandName + '<em>(Vu ' + image.vu + ' fois)</em>'
+                });
+            }
+            $scope.items.push.apply($scope.items, items);
+            if ( $scope.items.length == 1000 ) {
+                $scope.noMoreItemsAvailable = true;
+            }
+        });
 })
 
 ;
