@@ -58,7 +58,11 @@ angular.module('MetalorgieMobile.controllers', [])
         if (typeof $scope.news.videos != 'undefined') {
             var length = $scope.news.videos.length;
             for (var i = 0; i < length; i++) {
-                $scope.news.videos[i].embedUrl = $sce.trustAsResourceUrl($scope.news.videos[i].embedUrl)
+                var url = $scope.news.videos[i].embedUrl;
+                if (!/^(f|ht)tps?:\/\//i.test(url)) {
+                    url = "https://" + url;
+                }
+                $scope.news.videos[i].embedUrl = $sce.trustAsResourceUrl(url)
             }
         }
     });
@@ -185,7 +189,7 @@ angular.module('MetalorgieMobile.controllers', [])
 
             $scope.releases[dateStr].push ( releases[i] );
         }
-        console.log($scope.releases);
+        //console.log($scope.releases);
     });
 })
 

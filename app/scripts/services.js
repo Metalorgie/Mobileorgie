@@ -9,7 +9,6 @@ angular.module('MetalorgieMobile.services', [])
             return this.find(0,40);
         },
         find:function(start, nb){
-            console.log('getting news from ' + start + ' nb : ' + nb);
             var deferred = $q.defer();
             $http({method : 'GET',url : ENV.apiEndpoint + baseUrl + '?start=' + start + '&limit=' + nb})//, headers: { 'X-Parse-Application-Id':'XXXXXXXXXXXXX', 'X-Parse-REST-API-Key':'YYYYYYYYYYYYY'}
                 .success(function(data, status) {

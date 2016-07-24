@@ -11,7 +11,7 @@ angular.module('MetalorgieMobile.filters', [])
 })
 .filter('convertLink', function ($sce){
         return function(input) {
-            var regex = /http:\/\/www\.metalorgie\.com\/(groupe|news)\/([^_\/"]+)[^"]*/g;
+            var regex = /http:\/\/www\.metalorgie\.com\/(groupe|news|interviews|dossiers|live-report)\/([^_\/"]+)[^"]*/g;
             var matches = [], found;
             while (found = regex.exec(input)) {
                 matches.push(
@@ -24,7 +24,7 @@ angular.module('MetalorgieMobile.filters', [])
             var i = 0,
                 length = matches.length;
             for ( ; i < length ; i++ ){
-                toChange = matches[i];
+                var toChange = matches[i];
                 var link = null;
                 switch(toChange.type)  {
                     case 'news':
@@ -33,12 +33,29 @@ angular.module('MetalorgieMobile.filters', [])
                     case 'groupe':
                         link = '#/app/band/' + toChange.id;
                         break;
+                    case 'interviews':
+                    case 'dossiers':
+                    case 'live-reports':
+                        link = '#/app/articles/' + toChange.id;
+                        break;
                 }
                 if (link != null) {
                     input = input.replace(toChange.link, link);
                 }
             }
 
+            // Fix img src :
+            var regex = /<img[^>]+src="(\/[^">]+)"/g;
+            var srcs = []
+            while ( m = regex.exec( input ) ) {
+                srcs.push( m[1] );
+            }
+            var i = 0,
+                length = srcs.length;
+            for ( ; i < length ; i++ ) {
+                var src = srcs[i];
+                input = input.replace(src, 'http://www.metalorgie.com/' + src);
+            }
             return input;
         }
     })
