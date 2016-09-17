@@ -1,0 +1,17 @@
+<ion-view>
+    <ion-content class="has-header bands">
+        <ion-list>
+            <ion-list>
+                <ion-item class="item-text-wrap item-thumbnail-left item-icon-right" data-ng-repeat="review in reviews" type="item-text-wrap" href="#/app/band/{{review.album.band.slug}}/album/{{review.album.id}}">
+
+                    <img data-ng-src="{{ review.album.image }}">
+                    <h3>{{ review.album.band.name }} - {{ review.album.name }}</h3>
+                    <p><strong>{{ review.rate }} / <span ng-if="review.express < 1  ">20</span>  <span ng-if="review.express == 1  ">5</span></strong></p>
+                    <p>{{ review.album.band.style }} - {{review.album.year}}</p>
+                    <i class="icon ion-ios7-arrow-right"></i>
+                </ion-item>
+            </ion-list>
+        </ion-list>
+        <ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="loadMore()" distance="10%"></ion-infinite-scroll>
+    </ion-content>
+</ion-view>

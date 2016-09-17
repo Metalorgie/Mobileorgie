@@ -71,6 +71,15 @@ angular.module('MetalorgieMobile', ['ionic', 'config', 'ngCordova', 'MetalorgieM
           }
       }
   })
+  .state('app.reviews', {
+      url: '/reviews',
+      views: {
+          'menuContent': {
+              templateUrl: 'templates/tab-reviews.html',
+              controller: 'ReviewsCtrl'
+          }
+      }
+  })
   .state('app.album-detail', {
       url: '/band/:slug/album/:id',
       views: {

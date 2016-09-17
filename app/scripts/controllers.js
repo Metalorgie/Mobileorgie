@@ -104,6 +104,41 @@ angular.module('MetalorgieMobile.controllers', [])
         };
 })
 
+.controller('ReviewsCtrl', function($scope, Review) {
+    if(typeof analytics !== "undefined") { analytics.trackView("Reviews Controller"); }
+
+    $scope.reviews = [];
+
+    var reviewsPromise = Review.latest(0,40);
+    reviewsPromise.then(function(result) {
+        $scope.reviews = result;
+    });
+
+    $scope.loadMore = function() {
+        var reviewsPromise = Review.latest($scope.reviews.length, 40);
+        reviewsPromise.then(function(result) {  // this is only run after $http completes
+            $scope.reviews.push.apply($scope.reviews, result);
+            if ( $scope.reviews.length == 10000 ) {
+                $scope.noMoreItemsAvailable = true;
+            }
+            $scope.$broadcast('scroll.infiniteScrollComplete');
+        });
+        if(typeof analytics !== "undefined") { analytics.trackEvent('Reviews', 'LoadMore'); }
+    };
+
+    $scope.query = {term: ''};
+
+    $scope.search = function() {
+        if ($scope.query.term.length > 2) {
+            var bandsPromise = Band.search($scope.query.term, 0, 40);
+            bandsPromise.then(function(result) {  // this is only run after $http completes
+                $scope.bands = result;
+            });
+            if(typeof analytics !== "undefined") { analytics.trackEvent('Bands', 'Search'); }
+        }
+    };
+})
+
 .controller('BandDetailCtrl', function($scope, $stateParams, Band) {
     var bandDetailPromise = Band.get($stateParams.slug);
     bandDetailPromise.then(function(result) {
