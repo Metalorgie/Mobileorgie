@@ -11,7 +11,7 @@ angular.module('MetalorgieMobile.filters', [])
 })
 .filter('convertLink', function ($sce){
         return function(input) {
-            var regex = /http:\/\/www\.metalorgie\.com\/(groupe|news|interviews|dossiers|live-report)\/([^_\/"]+)[^"]*/g;
+            var regex = /http:\/\/www\.metalorgie\.com\/(groupe|news|interviews|dossiers|live-reports)\/([^_\/"]+)[^"]*/g;
             var matches = [], found;
             while (found = regex.exec(input)) {
                 matches.push(
