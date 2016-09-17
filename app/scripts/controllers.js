@@ -302,7 +302,7 @@ angular.module('MetalorgieMobile.controllers', [])
                 $scope.items.push({
                     src: image.image,
                     thumb: image.thumbnails,
-                    sub: image.bandName + '<em>(Vu ' + image.vu + ' fois)</em>'
+                    sub: image.bandName + ' <em>(vu ' + image.vu + ' fois)</em>'
                 });
             }
             $scope.items.push.apply($scope.items, items);
