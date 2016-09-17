@@ -7,7 +7,7 @@ We use [Cordova](http://cordova.apache.org/), [AngularJS](https://angularjs.org/
 Install
 =======
 
-You must have Grunt installed
+You must have Compass / Grunt Cli installed
 
 ```
 git clone https://github.com/Metalorgie/Mobileorgie.git
