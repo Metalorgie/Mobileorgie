@@ -149,7 +149,13 @@ angular.module('MetalorgieMobile.controllers', [])
 .controller('AlbumCtrl', function($scope, $stateParams, Album) {
     var albumPromise = Album.get($stateParams.id);
         albumPromise.then(function(result) {
-        $scope.album = result;
+            $scope.album = result;
+            var reviewLength = $scope.album.reviews.length;
+            for (var i = 0; i < reviewLength; i++) {
+                if ($scope.album.reviews[i].express == 1) {
+                    $scope.album.reviews[i].rate = $scope.album.reviews[i].rate * 4;
+                }
+            }
     });
 })
 
