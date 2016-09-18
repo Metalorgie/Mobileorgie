@@ -7,10 +7,7 @@
     <author email="bacteries@metalorgie.com" href="http://www.metalorgie.com">
         Bacteries
     </author>
-    <content src="index.html" />
-    <access origin="*" />
-    <allow-intent href="*" />
-    <allow-navigation href="*" />
+    <access origin="*"/>
     <icon src="app/res/icons/mipmap-mdpi/ic_launcher.png"/>
     <platform name="android">
         <icon src="app/res/icons/mipmap-xxxhdpi/ic_launcher.png" density="xxxhdpi" />

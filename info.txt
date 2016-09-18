@@ -1,6 +1,6 @@
 Node version: v0.10.25
 
-Cordova version: 5.0.0
+Cordova version: 0.21.7
 
 Config.xml file: 
 
@@ -15,37 +15,94 @@ Config.xml file:
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <allow-intent href="*" />
+    <allow-navigation href="*" />
+    <icon src="app/res/icons/mipmap-mdpi/ic_launcher.png"/>
+    <platform name="android">
+        <icon src="app/res/icons/mipmap-xxxhdpi/ic_launcher.png" density="xxxhdpi" />
+        <icon src="app/res/icons/mipmap-xxhdpi/ic_launcher.png" density="xxhdpi" />
+        <icon src="app/res/icons/mipmap-xhdpi/ic_launcher.png" density="xhdpi" />
+        <icon src="app/res/icons/mipmap-hdpi/ic_launcher.png" density="hdpi" />
+        <icon src="app/res/icons/mipmap-mdpi/ic_launcher.png" density="mdpi" />
+        <access origin="*" />
+        <allow-intent href="*" />
+        <allow-navigation href="*" />
+    </platform>
+    <plugin name="cordova-plugin-whitelist" spec="1" />
 </widget>
 
 
-No Plugins Currently Installed
+Plugins: 
+
+cordova-plugin-whitelist
 
 Android platform:
 
 Available Android targets:
 ----------
-id: 1 or "android-22"
-     Name: Android 5.1.1
+id: 1 or "android-8"
+     Name: Android 2.2
      Type: Platform
-     API level: 22
-     Revision: 2
-     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WSVGA, WVGA800 (default), WVGA854, WXGA720, WXGA800, WXGA800-7in, AndroidWearRound, AndroidWearRound400x400, AndroidWearRoundChin320x290, AndroidWearSquare, AndroidWearSquare320x320, AndroidWearRound, AndroidWearRound400x400, AndroidWearRoundChin320x290, AndroidWearSquare, AndroidWearSquare320x320
- Tag/ABIs : android-tv/armeabi-v7a, android-tv/x86, android-wear/armeabi-v7a, android-wear/x86, default/armeabi-v7a, default/x86, default/x86_64
+     API level: 8
+     Revision: 3
+     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WVGA800 (default), WVGA854
+ Tag/ABIs : default/armeabi
 ----------
-id: 2 or "Google Inc.:Google APIs:22"
+id: 2 or "android-9"
+     Name: Android 2.3.1
+     Type: Platform
+     API level: 9
+     Revision: 2
+     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WVGA800 (default), WVGA854
+ Tag/ABIs : default/armeabi
+----------
+id: 3 or "android-23"
+     Name: Android 6.0
+     Type: Platform
+     API level: 23
+     Revision: 3
+     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WSVGA, WVGA800 (default), WVGA854, WXGA720, WXGA800, WXGA800-7in, AndroidWearRound, AndroidWearRound360x360, AndroidWearRound400x400, AndroidWearRound480x480, AndroidWearRoundChin320x290, AndroidWearRoundChin320x300, AndroidWearRoundChin360x325, AndroidWearRoundChin360x326, AndroidWearRoundChin360x330, AndroidWearSquare, AndroidWearSquare240x240, AndroidWearSquare320x320, AndroidWearRound, AndroidWearRound360x360, AndroidWearRound400x400, AndroidWearRound480x480, AndroidWearRoundChin320x290, AndroidWearRoundChin320x300, AndroidWearRoundChin360x325, AndroidWearRoundChin360x326, AndroidWearRoundChin360x330, AndroidWearSquare, AndroidWearSquare240x240, AndroidWearSquare320x320
+ Tag/ABIs : android-tv/armeabi-v7a, android-tv/x86, android-wear/armeabi-v7a, android-wear/x86, default/armeabi-v7a, default/x86, default/x86_64, google_apis/armeabi-v7a, google_apis/x86, google_apis/x86_64
+----------
+id: 4 or "android-24"
+     Name: Android 7.0
+     Type: Platform
+     API level: 24
+     Revision: 3
+     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WSVGA, WVGA800 (default), WVGA854, WXGA720, WXGA800, WXGA800-7in
+ Tag/ABIs : default/arm64-v8a, default/armeabi-v7a, default/x86, default/x86_64, google_apis/arm64-v8a, google_apis/armeabi-v7a, google_apis/x86, google_apis/x86_64
+----------
+id: 5 or "Google Inc.:Google APIs:23"
      Name: Google APIs
      Type: Add-On
      Vendor: Google Inc.
      Revision: 1
      Description: Android + Google APIs
-     Based on Android 5.1.1 (API level 22)
+     Based on Android 6.0 (API level 23)
      Libraries:
-      * com.google.android.media.effects (effects.jar)
-          Collection of video effects
       * com.android.future.usb.accessory (usb.jar)
           API for USB Accessories
+      * com.google.android.media.effects (effects.jar)
+          Collection of video effects
       * com.google.android.maps (maps.jar)
           API for Google Maps
-     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WSVGA, WVGA800 (default), WVGA854, WXGA720, WXGA800, WXGA800-7in, AndroidWearRound, AndroidWearRound400x400, AndroidWearRoundChin320x290, AndroidWearSquare, AndroidWearSquare320x320, AndroidWearRound, AndroidWearRound400x400, AndroidWearRoundChin320x290, AndroidWearSquare, AndroidWearSquare320x320
- Tag/ABIs : google_apis/armeabi-v7a, google_apis/x86, google_apis/x86_64
+     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WSVGA, WVGA800 (default), WVGA854, WXGA720, WXGA800, WXGA800-7in, AndroidWearRound, AndroidWearRound360x360, AndroidWearRound400x400, AndroidWearRound480x480, AndroidWearRoundChin320x290, AndroidWearRoundChin320x300, AndroidWearRoundChin360x325, AndroidWearRoundChin360x326, AndroidWearRoundChin360x330, AndroidWearSquare, AndroidWearSquare240x240, AndroidWearSquare320x320, AndroidWearRound, AndroidWearRound360x360, AndroidWearRound400x400, AndroidWearRound480x480, AndroidWearRoundChin320x290, AndroidWearRoundChin320x300, AndroidWearRoundChin360x325, AndroidWearRoundChin360x326, AndroidWearRoundChin360x330, AndroidWearSquare, AndroidWearSquare240x240, AndroidWearSquare320x320
+ Tag/ABIs : no ABIs.
+----------
+id: 6 or "Google Inc.:Google APIs:24"
+     Name: Google APIs
+     Type: Add-On
+     Vendor: Google Inc.
+     Revision: 1
+     Description: Android + Google APIs
+     Based on Android 7.0 (API level 24)
+     Libraries:
+      * com.android.future.usb.accessory (usb.jar)
+          API for USB Accessories
+      * com.google.android.media.effects (effects.jar)
+          Collection of video effects
+      * com.google.android.maps (maps.jar)
+          API for Google Maps
+     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WSVGA, WVGA800 (default), WVGA854, WXGA720, WXGA800, WXGA800-7in
+ Tag/ABIs : no ABIs.
 

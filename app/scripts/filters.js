@@ -44,18 +44,7 @@ angular.module('MetalorgieMobile.filters', [])
                 }
             }
 
-            // Fix img src :
-            var regex = /<img[^>]+src="(\/[^">]+)"/g;
-            var srcs = []
-            while ( m = regex.exec( input ) ) {
-                srcs.push( m[1] );
-            }
-            var i = 0,
-                length = srcs.length;
-            for ( ; i < length ; i++ ) {
-                var src = srcs[i];
-                input = input.replace(src, 'http://www.metalorgie.com/' + src);
-            }
+            input.replace(/<img[^>]+src="(\/[^">]+)"/gi, '<img src="http://www.metalorgie.com/$1">');
             return input;
         }
     })
