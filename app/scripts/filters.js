@@ -44,7 +44,7 @@ angular.module('MetalorgieMobile.filters', [])
                 }
             }
 
-            input = input.replace(/<img[^>]+src="(\/[^">]+)"/gi, '<img src="http://www.metalorgie.com/$1">');
+            input = input.replace(/<img[^>]+src="(\/[^">]+)"/gi, '<img src="http://www.metalorgie.com/$1"');
             return input;
         }
     })
