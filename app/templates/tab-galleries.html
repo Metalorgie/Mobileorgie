@@ -2,6 +2,7 @@
     <ion-content class="has-header releases">
         <ion-list>
             <ion-item class="item-text-wrap item-avatar item-icon-right" data-ng-repeat="gallery in galleries" type="item-text-wrap" href="#app/galleries/{{gallery.id}}">
+                <img data-ng-src="{{ gallery.thumbnail.thumbnails }}">
                 <h2>{{ gallery.title }}</h2>
                 <p data-ng-bind-html="gallery.description"></p>
                 <i class="icon ion-ios7-arrow-right"></i>
