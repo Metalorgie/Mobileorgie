@@ -17,8 +17,10 @@
 						<img data-ng-src="{{ album.image }}">
 						<h3>{{ album.name }}</h3>
 						<p>{{album.year}}</p>
-						<i class="icon ion-ios7-arrow-right"></i>
-						<p ng-if="album.rate > 0">Lire la chronique</p>
+						<p ng-if="album.rate > 0">
+							<i class="icon ion-chevron-right icon-accessory"></i>
+							Lire la chronique
+						</p>
 					</ion-item>
 				</ion-list>
 			</div>
