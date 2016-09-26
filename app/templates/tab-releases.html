@@ -1,16 +1,17 @@
 <ion-view>
     <ion-content class="has-header releases">
-        <div class="list">
-            <div class="item item-divider"
-                 ng-repeat-start="(date, r) in releases">
-                {{date}}
-            </div>
-            <div class="item"
-                 ng-repeat="release in r">
+
+        <ion-list can-swipe="false">
+            <ion-item class="item-divider" data-ng-repeat-start="releases in releasesByDay">
+                {{releases[0].date | date :'dd/MM/yyyy'}}
+            </ion-item>
+
+            <ion-item class="item-text-wrap item-icon-right" data-ng-repeat="release in releases" type="item-text-wrap">
                 <strong>{{ release.band_name }}</strong> -
                 {{ release.title }}
-            </div>
-            <div ng-repeat-end></div>
-        </div>
+            </ion-item>
+            <div data-ng-repeat-end></div>
+        </ion-list>
+
     </ion-content>
 </ion-view>

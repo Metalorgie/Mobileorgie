@@ -19,6 +19,11 @@ angular.module('MetalorgieMobile', ['ionic', 'config', 'ngCordova', 'MetalorgieM
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+    if(typeof analytics !== "undefined") {
+      analytics.startTrackerWithId("UA-340766-4");
+    } else {
+      console.log("Google Analytics Unavailable");
+    }
   });
 })
 .config(function($stateProvider, $urlRouterProvider) {
@@ -167,13 +172,5 @@ angular.module('MetalorgieMobile', ['ionic', 'config', 'ngCordova', 'MetalorgieM
   $urlRouterProvider.otherwise('/app/news');
 
 })
-    .run(function($ionicPlatform, $ionicPopup) {
-        $ionicPlatform.ready(function() {
-            if(typeof analytics !== "undefined") {
-                analytics.startTrackerWithId("UA-340766-1");
-            } else {
-                console.log("Google Analytics Unavailable");
-            }
-        });
-    });
+;
 

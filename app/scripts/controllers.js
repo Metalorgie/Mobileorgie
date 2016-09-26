@@ -73,12 +73,6 @@ angular.module('MetalorgieMobile.controllers', [])
 
         $scope.bands = [];
 
-        //if(typeof analytics !== "undefined") { analytics.trackView("Bands Controller"); }
-        var bandsPromise = Band.latest(0,40);
-        bandsPromise.then(function(result) {
-            $scope.bands = result;
-        });
-
         $scope.loadMore = function() {
             var bandsPromise = Band.latest($scope.bands.length, 40);
             bandsPromise.then(function(result) {  // this is only run after $http completes
@@ -140,6 +134,7 @@ angular.module('MetalorgieMobile.controllers', [])
 })
 
 .controller('BandDetailCtrl', function($scope, $stateParams, Band) {
+    if(typeof analytics !== "undefined") { analytics.trackView("Band Controller"); }
     var bandDetailPromise = Band.get($stateParams.slug);
     bandDetailPromise.then(function(result) {
         $scope.band = result;
@@ -147,6 +142,7 @@ angular.module('MetalorgieMobile.controllers', [])
 })
 
 .controller('AlbumCtrl', function($scope, $stateParams, Album) {
+    if(typeof analytics !== "undefined") { analytics.trackView("Album Controller"); }
     var albumPromise = Album.get($stateParams.id);
         albumPromise.then(function(result) {
             $scope.album = result;
@@ -160,6 +156,7 @@ angular.module('MetalorgieMobile.controllers', [])
 })
 
 .controller('LivesCtrl', function($scope, Lives, $cordovaGeolocation, $ionicPopup, City) {
+    if(typeof analytics !== "undefined") { analytics.trackView("Lives Controller"); }
     $cordovaGeolocation
         .getCurrentPosition()
         .then(function (position) {
@@ -210,27 +207,25 @@ angular.module('MetalorgieMobile.controllers', [])
             });
         };
 })
+
 .controller('LiveDetailCtrl', function($scope, $stateParams, Lives) {
+    if(typeof analytics !== "undefined") { analytics.trackView("Live details Controller"); }
     var liveDetailPromise = Lives.get($stateParams.id);
     liveDetailPromise.then(function(result) {
         $scope.live = result;
     });
 })
 
-.controller('ReleasesCtrl', function($scope, Releases, $filter) {
-    var releasesPromise = Releases.incoming();
-    releasesPromise.then(function(releases) {
-        $scope.releases = {};
-        var contactsLength = releases.length;
-        for (var i = 0; i < contactsLength; i++) {
-            var dateStr = $filter('date')(releases[i].date, "dd/MM/yyyy");
-            if(!$scope.releases[dateStr]) {
-                $scope.releases[dateStr] = [];
-            }
+.controller('ReleasesCtrl', function($scope, Releases, $filter, dividerFilter) {
+    if(typeof analytics !== "undefined") { analytics.trackView("Releases Controller"); }
+    $scope.releases = [];
+    $scope.releasesByDay = [];
 
-            $scope.releases[dateStr].push ( releases[i] );
-        }
-        //console.log($scope.releases);
+    var releasesPromise = Releases.incoming();
+
+    releasesPromise.then(function(releases) {
+        $scope.releases.push.apply($scope.releases, releases);
+        $scope.releasesByDay = dividerFilter($scope.releases, 'date');
     });
 })
 
@@ -275,7 +270,9 @@ angular.module('MetalorgieMobile.controllers', [])
         $scope.articles = result;
     });
 })
+
 .controller('ArticleDetailCtrl', function($scope, $stateParams, Articles) {
+    if(typeof analytics !== "undefined") { analytics.trackView("Article Controller"); }
     var articleDetailPromise = Articles.get($stateParams.id);
     articleDetailPromise.then(function(result) {
         $scope.article = result;
@@ -299,6 +296,7 @@ angular.module('MetalorgieMobile.controllers', [])
     })
 
 .controller('GalleryDetailCtrl', function($scope, $stateParams, $ionicModal, Gallery) {
+    if(typeof analytics !== "undefined") { analytics.trackView("Gallery Details Controller"); }
         $scope.items = [];
 
         var galleryDetailPromise = Gallery.get($stateParams.id);
